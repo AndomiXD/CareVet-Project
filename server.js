@@ -5,7 +5,6 @@ const logger = require("morgan")
 const methodOverride = require("method-override")
 const session = require("express-session")
 const db = require("./db")
-require("dotenv").config()
 
 const PORT = process.env.PORT ? process.env.PORT : 3000
 
@@ -21,9 +20,13 @@ app.use(
     saveUninitialized: true,
   })
 )
+//Require Routes
+const authRouter = require("./routes/authRoutes")
 
-app.use("/", (request, respond) => {
-  respond.send("Root Route Working")
+app.use("/auth", authRouter)
+
+app.get("/", (request, respond) => {
+  respond.render("index.ejs")
 })
 
 app.listen(PORT, () => {

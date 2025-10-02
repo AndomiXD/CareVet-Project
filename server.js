@@ -5,8 +5,6 @@ const logger = require("morgan")
 const session = require("express-session")
 const db = require("./db")
 
-const authRouter = require("./routes/authRouter.js")
-
 app.use(logger("dev"))
 const methodOverride = require("method-override")
 app.use(express.json())
@@ -20,17 +18,13 @@ app.use(
   })
 )
 //Require Routes
-const authRouter = require("./routes/authRoutes")
+const authRouter = require("./routes/authRouter")
 
 app.use("/auth", authRouter)
 
 app.get("/", (request, respond) => {
   respond.render("index.ejs")
 })
-
-app.use("/auth", authRouter)
-
-
 
 const PORT = process.env.PORT ? process.env.PORT : 3000
 

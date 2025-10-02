@@ -19,15 +19,18 @@ app.use(
     saveUninitialized: true,
   })
 )
+//Require Routes
+const authRouter = require("./routes/authRoutes")
 
+app.use("/auth", authRouter)
+
+app.get("/", (request, respond) => {
+  respond.render("index.ejs")
+})
 
 app.use("/auth", authRouter)
 
 
-
-app.get("/", (request, respond) => {
-  respond.send("Root Route Working")
-})
 
 const PORT = process.env.PORT ? process.env.PORT : 3000
 

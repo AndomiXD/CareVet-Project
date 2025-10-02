@@ -6,6 +6,7 @@ const authCtrl = require("../controllers/authController")
 router.get("/sign-up", (request, respond) => {
   respond.render("./auth/sign-up.ejs")
 })
+router.post("/sign-up", authCtrl.registerUser)
 
 router.get("/sign-in", authCtrl.auth_signin_get)
 router.post("/sign-in", authCtrl.auth_signin_post)

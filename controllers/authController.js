@@ -31,6 +31,13 @@ const auth_signin_get = async (req, res) => {
   res.render("auth/sign-in.ejs")
 }
 
+
+exports.auth_signout_get = async (req, res) => {
+  req.session.destroy()
+  res.redirect("/auth/sign-in")
+}
+
+
 const auth_signin_post = async (req, res) => {
   const userInDatabase = await User.findOne({ username: req.body.username })
 
@@ -54,6 +61,7 @@ const auth_signin_post = async (req, res) => {
 
   res.redirect("/")
 }
+
 
 module.exports = {
   registerUser,

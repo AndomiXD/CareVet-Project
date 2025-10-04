@@ -52,6 +52,7 @@ const auth_signin_post = async (req, res) => {
     _id: userInDatabase._id,
   })
 
+
   res.render("auth/home.ejs", { user: data })
 }
 

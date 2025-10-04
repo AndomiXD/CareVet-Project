@@ -19,8 +19,10 @@ app.use(
 )
 //Require Routes
 const authRouter = require("./routes/authRouter")
+const petRouter= require('./routes/petRouter')
 
 app.use("/auth", authRouter)
+app.use('/pets',petRouter)
 
 app.get("/", (request, respond) => {
   respond.render("index.ejs")

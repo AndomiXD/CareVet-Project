@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Registeration</title>
+  </head>
+  <body>
+    <h1>Register your pet</h1>
+    <form action="/pets/addPet" method="post">
+      <label>Pet Name:</label>
+      <input type="text" name="petName" required />
+      <br />
+      <label>Species:</label>
+      <input type="text" name="species" required />
+      <br />
+      <label>Breed: </label>
+      <input type="text" name="breed" required />
+      <br />
+      <label>Pet Photo (URL): </label>
+      <input type="text" name="petPhoto" />
+      <br />
+      <button type="submit">Add Pet</button>
+    </form>
+  </body>
+</html>

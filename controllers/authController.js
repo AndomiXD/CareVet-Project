@@ -47,12 +47,13 @@ const auth_signin_post = async (req, res) => {
     return res.send("Wrong Password, please try again later !")
   }
 
-  req.session.user = {
+  const data = (req.session.user = {
     username: userInDatabase.username,
     _id: userInDatabase._id,
-  }
+  })
 
-  res.redirect("./home/index.ejs")
+
+  res.render("auth/home.ejs", { user: data })
 }
 
 const auth_signout_get = async (req, res) => {

@@ -16,5 +16,8 @@ router.post(
   userCtrl.post_book_appointment
 )
 
+router.get("/viewAppointment", userController.get_view_appointment)
+
+router.get("/:id", userController.getProfile)
 
 module.exports = router

@@ -1,0 +1,15 @@
+<h1>Edit you pet's info</h1>
+
+<form action="/pets/addPet/<%=pet._id %>?_method=PUT" method="post">
+  <label>Pet Name:</label>
+
+  <input type="text" name="petName" value="<%=pet.name %>" required />
+  <br />
+  <label>Species:</label>
+  <input type="text" name="species" value="<%=pet.species %>" required />
+  <br />
+  <label>Breed: </label>
+  <input type="text" name="breed" value="<%=pet.breed %>" required />
+  <br />
+  <button type="submit">Update info</button>
+</form>

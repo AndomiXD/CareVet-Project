@@ -4,4 +4,8 @@ const petCtrl = require("../controllers/petController")
 
 router.get("/addPet", petCtrl.get_add_pet)
 router.post("/addPet", petCtrl.post_add_pet)
+router.get("/all", petCtrl.getAllPets)
+
+router.get("/:id", petCtrl.getPetById)
+
 module.exports = router

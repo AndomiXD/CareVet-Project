@@ -1,0 +1,8 @@
+<h1>All pets</h1>
+<ul>
+  <% pets.forEach(pet => { %>
+    <li>
+      <a href="/pets/<%= pet._id %>"><%= pet.petName %></a>
+    </li>
+  <% }) %>
+</ul>

@@ -14,7 +14,7 @@ const getProfile = async (req, res) => {
       phone: user.phone,
       image: user.image,
       role: user.role,
-      pets: pets,
+      // pets: pets,
     }
     res.render("./user/profile.ejs", { user: data })
   } catch (err) {
@@ -22,4 +22,32 @@ const getProfile = async (req, res) => {
   }
 }
 
-module.exports = { getProfile }
+const update_profile_get = async (req, res) => {
+  const user = await User.findById(req.params.id)
+  if (!user) {
+    return res.send("No user with that ID exists.")
+  }
+  const data = {
+    _id: user._id,
+    username: user.username,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    address: user.address,
+    phone: user.phone,
+    image: user.image,
+    role: user.role,
+    // pets: pets,
+  }
+  res.render("user/update-profile.ejs", { user: data })
+}
+
+const update_profile_put = async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body)
+    res.redirect(`/user/${user._id}`)
+  } catch (error) {
+    console.error("Error has occurred when updating profile!", error.message)
+  }
+}
+
+module.exports = { getProfile, update_profile_get, update_profile_put }

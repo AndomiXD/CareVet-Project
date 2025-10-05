@@ -4,6 +4,10 @@ const app = express()
 const logger = require("morgan")
 const session = require("express-session")
 const db = require("./db")
+//Require Routes
+const authRouter = require("./routes/authRouter")
+const petRouter = require("./routes/petRouter")
+const userRouter = require("./routes/userRouter")
 
 app.use(logger("dev"))
 const methodOverride = require("method-override")
@@ -18,10 +22,6 @@ app.use(
     saveUninitialized: true,
   })
 )
-//Require Routes
-const authRouter = require("./routes/authRouter")
-const petRouter = require("./routes/petRouter")
-const userRouter = require("./routes/userRouter")
 
 app.use("/auth", authRouter)
 app.use("/pets", petRouter)

@@ -42,15 +42,35 @@ const post_book_appointment = async (req, res) => {
     const { petId, date, time, reason } = req.body
     const appointment = new Appointment({
       petId,
-      dateTime,
+      date,
+      time,
       reason,
     })
     await appointment.save()
-    res.redirect("/auth/home")
+    res.redirect("/user/viewAppointment")
   } catch (err) {
     console.log("Error while booking an appointment", err)
-    res.status(500).send("Error booking appointment")
+    res.send("Error booking appointment" + err.message)
   }
 }
 
-module.exports = { getProfile, get_book_appointment, post_book_appointment }
+const get_view_appointment = async (req, res) => {
+  try {
+    const pets = await Pet.find({ owner: req.session.user._id })
+    const petIds = pets.map((pet) => pet._id)
+    const appointments = await Appointment.find({ petId: { $in: petIds } })
+      .populate("petId", "petName species breed")
+      .sort({ dateTime: 1 })
+    res.render("user/viewAppointment", { appointments })
+  } catch (err) {
+    console.error("Error showing appointments", +err)
+    res.send("Error loading appointments" + err.message)
+  }
+}
+
+module.exports = {
+  getProfile,
+  get_book_appointment,
+  post_book_appointment,
+  get_view_appointment,
+}

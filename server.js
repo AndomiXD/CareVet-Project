@@ -7,6 +7,8 @@ const db = require("./db")
 
 app.use(logger("dev"))
 const methodOverride = require("method-override")
+const isSignedIn = require("./middleware/is-sign-in")
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
@@ -24,9 +26,10 @@ const petRouter = require("./routes/petRouter")
 const userRouter = require("./routes/userRouter")
 
 app.use("/auth", authRouter)
+app.use(isSignedIn)
 app.use("/pets", petRouter)
 app.use("/user", userRouter)
-
+//Root route
 app.get("/", (request, respond) => {
   respond.render("index.ejs")
 })

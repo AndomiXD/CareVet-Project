@@ -2,8 +2,10 @@ const Pet = require("../models/Pet")
 
 exports.post_add_pet = async (req, res) => {
   try {
-    const petInDatabase = await Pet.findById(req.bodyid)
-    // const ownerId = req.session.userid
+
+    const petInDatabase = await Pet.findById(req.body._id)
+    const ownerId = req.session.user._id
+
 
     if (petInDatabase) {
       return res.send("Pet already exists")
@@ -14,7 +16,7 @@ exports.post_add_pet = async (req, res) => {
       species: req.body.species,
       breed: req.body.breed,
       // petPhoto: req.body.photo,
-      // owner: ownerId,
+      owner: ownerId,
     })
     res.send("Pet has been added:" + pet.petName)
   } catch (error) {

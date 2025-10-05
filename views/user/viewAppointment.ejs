@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Appointments</title>
+  </head>
+  <body>
+    <h1>My Appointments</h1>
+
+    <% if (appointments.length === 0) { %>
+    <p>No appointments booked yet.</p>
+    <% } else { %>
+    <table>
+      <tr>
+        <th>Pet Name</th>
+        <th>Species</th>
+        <th>Breed</th>
+        <th>Date & Time</th>
+        <th>Reason</th>
+      </tr>
+      <% appointments.forEach(app => { %>
+      <tr>
+        <td><%= app.petId.petName %></td>
+        <td><%= app.petId.species %></td>
+        <td><%= app.petId.breed %></td>
+        <td><%= app.dateTime.toLocaleString() %></td>
+        <td><%= app.reason %></td>
+      </tr>
+      <% }) %>
+    </table>
+    <% } %>
+
+    <a href="/auth/home">← Back to Home</a>
+  </body>
+</html>

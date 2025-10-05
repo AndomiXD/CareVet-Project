@@ -12,6 +12,7 @@ const isSignedIn = require("./middleware/is-sign-in")
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+app.use(methodOverride("_method"))
 app.use(
   session({
     secret: process.env.SESSION_SECRET,

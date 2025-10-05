@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="/stylesheet/style.css" />
 <body>
-  <%- include('../partials/_navbar.ejs') %>
 
   <div class="signin-page">
     <img
@@ -8,15 +7,26 @@
       alt="Care Vet Logo"
       class="logo"
     />
-    <div class="signin-form-container-1">
-      <div class="signin-form-container-2">
-        <h1>CareVet</h1>
-        <form action="/auth/sign-in" method="POST">
+    <h1>CareVet</h1>
+    <div class="user-field">
+ <form action="/auth/sign-in" method="POST">
           <label for="username">Username:</label>
           <input type="text" name="username" id="username" required />
+          </form>
+        </div>
+        <div class="password-field">
           <label for="password">Password:</label>
           <input type="password" name="password" id="password" required />
+          </div>
+          <div class="forget-field">
+          Forget password
+          </div>
+          <div class="create-field">
+          Create new account!
+          </div>
+          <div class="submit-field">
           <button type="submit">Enter</button>
+          </div>
         </form>
       </div>
     </div>

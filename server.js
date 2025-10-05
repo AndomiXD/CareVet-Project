@@ -17,9 +17,11 @@ const session = require("express-session")
 
 //use middlewares
 app.use(express.urlencoded())
-app.use(methodOverride("_method"))
 app.use(morgan("dev"))
 app.use(express.static(path.join(__dirname, "public")))
+
+app.use(methodOverride("_method"))
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -30,11 +32,11 @@ app.use(
 
 //Require Routes
 const authRouter = require("./routes/authRouter")
-const petRouter= require('./routes/petRouter')
-const userRouter= require('./routes/userRouter')
+const petRouter = require("./routes/petRouter")
+const userRouter = require("./routes/userRouter")
 
 app.use("/auth", authRouter)
-app.use('/pets',petRouter)
+app.use("/pets", petRouter)
 app.use("/user", userRouter)
 
 app.get("/", (request, respond) => {

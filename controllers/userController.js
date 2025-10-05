@@ -1,27 +1,45 @@
 const User = require("../models/User")
 const Pet = require("../models/Pet")
-const Appointment = require("../models/Appointment")
+
+
 const getProfile = async (req, res) => {
   try {
     const userId = req.session.user._id // it is to get userId from session
     const user = await User.findById(req.params.id)
-    const pets = await Pet.find({ owner: user._id })
-    if (userId) {
-      const data = {
-        _id: user._id,
-        username: user.username,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        address: user.address,
-        phone: user.phone,
-        image: user.image,
-        role: user.role,
-        pets: pets,
-      }
-      res.render("./user/profile.ejs", { user: data })
+
+    pets = await Pet.find({ owner: user._id })
+    const data = {
+      _id: user._id,
+      username: user.username,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      address: user.address,
+      phone: user.phone,
+      image: user.image,
+      role: user.role,
+      pets: pets,
     }
   } catch (err) {
     console.error("cannot get profile" + err)
+  }
+}
+
+
+const update_profile_get = async (req, res) => {
+  const user = await User.findById(req.params.id)
+  if (!user) {
+    return res.send("No user with that ID exists.")
+  }
+
+  res.render("user/update-profile.ejs", { user })
+}
+
+const update_profile_put = async (req, res) => {
+  try {
+    await User.findByIdAndUpdate(req.params.id, req.body)
+    res.send(`Profile successfully updated`)
+  } catch (error) {
+    console.error("Error has occurred when updating profile!", error.message)
   }
 }
 
@@ -70,7 +88,8 @@ const get_view_appointment = async (req, res) => {
 
 module.exports = {
   getProfile,
-  get_book_appointment,
+  update_profile_get, update_profile_put, get_book_appointment,
   post_book_appointment,
   get_view_appointment,
 }
+

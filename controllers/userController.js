@@ -1,18 +1,20 @@
 const User = require("../models/User")
-const Pet = require("../models/Pet")
+// const Pet = require("../models/Pet")
 
 const getProfile = async (req, res) => {
   try {
-    const userId = req.session?.userId || req.query.id
-    if (!userId) {
-      res.send("User not logged in")
+    const user = await User.findById(req.params.id)
+    const data = {
+      _id: user._id,
+      username: user.username,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      address: user.address,
+      phone: user.phone,
+      image: user.image,
+      role: user.role,
     }
-    const user = await User.findById(userId)
-    if (!user) {
-      res.send("User not found")
-    }
-    const pets = await Pet.find({ owner: userId })
-    res.render("profile", { user, pets })
+    res.render("./user/profile.ejs", { user: data })
   } catch (err) {
     console.error("cannot get profile" + err)
   }

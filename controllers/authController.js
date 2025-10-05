@@ -52,8 +52,15 @@ const auth_signin_post = async (req, res) => {
     _id: userInDatabase._id,
   })
 
-
   res.render("auth/home.ejs", { user: data })
+}
+
+const update_profile_get = async (req, res) => {
+  const checkId = await User.findById(req.params.id)
+  if (!checkId) {
+    return res.send("No user with that ID exists.")
+  }
+  res.render("auth/update-profile.ejs", { user: checkId })
 }
 
 const auth_signout_get = async (req, res) => {
@@ -65,5 +72,6 @@ module.exports = {
   registerUser,
   auth_signin_get,
   auth_signin_post,
+  update_profile_get,
   auth_signout_get,
 }

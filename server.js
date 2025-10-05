@@ -10,6 +10,7 @@ const methodOverride = require("method-override")
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+app.use(methodOverride("_method"))
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -19,11 +20,11 @@ app.use(
 )
 //Require Routes
 const authRouter = require("./routes/authRouter")
-const petRouter= require('./routes/petRouter')
-const userRouter= require('./routes/userRouter')
+const petRouter = require("./routes/petRouter")
+const userRouter = require("./routes/userRouter")
 
 app.use("/auth", authRouter)
-app.use('/pets',petRouter)
+app.use("/pets", petRouter)
 app.use("/user", userRouter)
 
 app.get("/", (request, respond) => {

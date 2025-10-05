@@ -1,9 +1,10 @@
 const User = require("../models/User")
-// const Pet = require("../models/Pet")
+const Pet = require("../models/Pet")
 
 const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
+    const pets = await Pet.find({ owner: user._id })
     const data = {
       _id: user._id,
       username: user.username,
@@ -13,6 +14,7 @@ const getProfile = async (req, res) => {
       phone: user.phone,
       image: user.image,
       role: user.role,
+      pets: pets,
     }
     res.render("./user/profile.ejs", { user: data })
   } catch (err) {

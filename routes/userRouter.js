@@ -3,13 +3,13 @@ const router = express.Router()
 const userController = require("../controllers/userController")
 
 // Routes
-<<<<<<< HEAD
+
 router.get("/profile", userController.getProfile)
 
 router.get("/bookAppointment", userController.get_book_appointment)
 router.post("/bookAppointment", userController.post_book_appointment)
-=======
+
 router.get("/:id", userController.getProfile)
->>>>>>> main
+
 
 module.exports = router

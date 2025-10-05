@@ -1,11 +1,24 @@
-<h1>Sign In</h1>
-<form action="/auth/sign-in" method="post">
-  <label for="username"> Username </label>
-  <input type="text" name="username" id="username" />
-  <br />
-  <label for="password"> Password </label>
-  <input type="password" name="password" id="password" />
-  <br />
+<link rel="stylesheet" href="/stylesheet/style.css" />
+<body>
+  <%- include('../partials/_navbar.ejs') %>
 
-  <button type="submit">Sign In</button>
-</form>
+  <div class="signin-page">
+    <img
+      src="/images/project pic.png"
+      alt="Care Vet Logo"
+      class="logo"
+    />
+    <div class="signin-form-container-1">
+      <div class="signin-form-container-2">
+        <h1>CareVet</h1>
+        <form action="/auth/sign-in" method="POST">
+          <label for="username">Username:</label>
+          <input type="text" name="username" id="username" required />
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" required />
+          <button type="submit">Enter</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

@@ -4,13 +4,17 @@ const app = express()
 const logger = require("morgan")
 const session = require("express-session")
 const db = require("./db")
+//Require Routes
+const authRouter = require("./routes/authRouter")
+const petRouter = require("./routes/petRouter")
+const userRouter = require("./routes/userRouter")
 
 app.use(logger("dev"))
 const methodOverride = require("method-override")
 const isSignedIn = require("./middleware/is-sign-in")
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 
 app.use(methodOverride("_method"))
 app.use(
@@ -20,10 +24,6 @@ app.use(
     saveUninitialized: true,
   })
 )
-//Require Routes
-const authRouter = require("./routes/authRouter")
-const petRouter = require("./routes/petRouter")
-const userRouter = require("./routes/userRouter")
 
 app.use("/auth", authRouter)
 app.use(isSignedIn)

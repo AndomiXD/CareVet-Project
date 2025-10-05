@@ -79,7 +79,7 @@ const updatePassword = async (request, respond) => {
 
     user.password = hashedPassword
     await user.save()
-    respond.render("./auth/confirm.ejs", { user: data })
+    respond.send("Password Updated successfully.")
   } catch (error) {
     console.error("Error has occurred when updating password!", error.message)
   }

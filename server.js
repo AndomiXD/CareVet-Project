@@ -12,7 +12,7 @@ const userRouter = require("./routes/userRouter")
 app.use(logger("dev"))
 const methodOverride = require("method-override")
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 
 app.use(methodOverride("_method"))
 app.use(

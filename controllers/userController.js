@@ -1,10 +1,10 @@
 const User = require("../models/User")
-const Pet = require("../models/Pet")
+// const Pet = require("../models/Pet")
 
 const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
-    const pets = await Pet.find({ owner: user._id })
+    // const pets = await Pet.find({ owner: user._id })
     const data = {
       _id: user._id,
       username: user.username,
@@ -27,24 +27,14 @@ const update_profile_get = async (req, res) => {
   if (!user) {
     return res.send("No user with that ID exists.")
   }
-  const data = {
-    _id: user._id,
-    username: user.username,
-    firstName: user.firstName,
-    lastName: user.lastName,
-    address: user.address,
-    phone: user.phone,
-    image: user.image,
-    role: user.role,
-    // pets: pets,
-  }
-  res.render("user/update-profile.ejs", { user: data })
+
+  res.render("user/update-profile.ejs", { user })
 }
 
 const update_profile_put = async (req, res) => {
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body)
-    res.redirect(`/user/${user._id}`)
+    await User.findByIdAndUpdate(req.params.id, req.body)
+    res.send(`Profile successfully updated`)
   } catch (error) {
     console.error("Error has occurred when updating profile!", error.message)
   }

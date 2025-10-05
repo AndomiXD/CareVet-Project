@@ -1,4 +1,4 @@
-<h2>Update Profile</h2>
+<h2>Update Profile for User <%=user.username%></h2>
 <form action="/user/<%= user._id %>?_method=PUT" method="POST">
   <input
     type="text"
@@ -7,20 +7,23 @@
     value="<%= user.firstName%>"
     required
   />
+  <br />
   <input
     type="text"
-    name="firstName"
+    name="lastName"
     placeholder="Last Name"
     value="<%= user.lastName%>"
     required
   />
+  <br />
   <input
     type="text"
-    name="firstName"
+    name="username"
     placeholder="Username"
     value="<%= user.username%>"
     required
   />
+  <br />
   <input
     type="text"
     name="address"
@@ -28,6 +31,7 @@
     value="<%= user.address%>"
     required
   />
+  <br />
   <input
     type="text"
     name="phone"
@@ -47,4 +51,4 @@
 
 <br />
 
-<a href="./auth/update-password">Change Password</a>
+<a href="/auth/<%=user._id%>/update-password">Change Password</a>

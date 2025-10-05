@@ -17,13 +17,13 @@
         <th>Date & Time</th>
         <th>Reason</th>
       </tr>
-      <% appointments.forEach(app => { %>
+      <% appointments.forEach(appointment => { %>
       <tr>
-        <td><%= app.petId.petName %></td>
-        <td><%= app.petId.species %></td>
-        <td><%= app.petId.breed %></td>
-        <td><%= app.dateTime.toLocaleString() %></td>
-        <td><%= app.reason %></td>
+        <td><%= appointment.petId.petName %></td>
+        <td><%= appointment.petId.species %></td>
+        <td><%= appointment.petId.breed %></td>
+        <td><%= appointment.dateTime.toLocaleString() %></td>
+        <td><%= appointment.reason %></td>
       </tr>
       <% }) %>
     </table>

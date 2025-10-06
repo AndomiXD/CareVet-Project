@@ -1,5 +1,6 @@
 const User = require("../models/User")
 const Pet = require("../models/Pet")
+const Appointment = require("../models/Appointment")
 
 const getProfile = async (req, res) => {
   try {
@@ -18,6 +19,7 @@ const getProfile = async (req, res) => {
       role: user.role,
       pets: pets,
     }
+    res.render("user/profile.ejs", { user: data })
   } catch (err) {
     console.error("cannot get profile" + err)
   }
@@ -63,7 +65,9 @@ const post_book_appointment = async (req, res) => {
       reason,
     })
     await appointment.save()
-    res.redirect("/user/viewAppointment")
+
+    const pets = await Pet.find({ owner: req.session.user._id })
+    res.render("user/viewAppointment.ejs", { pets, appointment })
   } catch (err) {
     console.log("Error while booking an appointment", err)
     res.send("Error booking appointment" + err.message)
@@ -77,7 +81,7 @@ const get_view_appointment = async (req, res) => {
     const appointments = await Appointment.find({ petId: { $in: petIds } })
       .populate("petId", "petName species breed")
       .sort({ dateTime: 1 })
-    res.render("user/viewAppointment", { appointments })
+    res.render("user/viewAppointment.ejs", { appointments})
   } catch (err) {
     console.error("Error showing appointments", +err)
     res.send("Error loading appointments" + err.message)
@@ -86,9 +90,9 @@ const get_view_appointment = async (req, res) => {
 
 module.exports = {
   getProfile,
-  update_profile_get,
-  update_profile_put,
   get_book_appointment,
   post_book_appointment,
   get_view_appointment,
+  update_profile_get,
+  update_profile_put,
 }

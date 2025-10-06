@@ -9,8 +9,12 @@ router.post("/bookAppointment", isSignedIn, userCtrl.post_book_appointment)
 router.get("/viewAppointment", userCtrl.get_view_appointment)
 
 // Routes
-router.get("/:id", userCtrl.getProfile)
+router.get("/bookAppointment", isSignedIn, userCtrl.get_book_appointment)
+router.post("/bookAppointment", isSignedIn, userCtrl.post_book_appointment)
+router.get("/viewAppointment", userCtrl.get_view_appointment)
+
 router.get("/:id/update-profile", userCtrl.update_profile_get)
 router.put("/:id", userCtrl.update_profile_put)
+router.get("/:id", userCtrl.getProfile)
 
 module.exports = router

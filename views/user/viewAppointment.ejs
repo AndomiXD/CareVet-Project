@@ -6,7 +6,7 @@
   <body>
     <h1>My Appointments</h1>
 
-    <% if (appointments.length === 0) { %>
+    <% if (appointments?.length === 0) { %>
     <p>No appointments booked yet.</p>
     <% } else { %>
     <table>
@@ -22,13 +22,14 @@
         <td><%= appointment.petId.petName %></td>
         <td><%= appointment.petId.species %></td>
         <td><%= appointment.petId.breed %></td>
-        <td><%= appointment.dateTime.toLocaleString() %></td>
+        <td><%= appointment.date.toLocaleString()%></td>
+        <td><%= appointment.time%></td>
         <td><%= appointment.reason %></td>
       </tr>
       <% }) %>
     </table>
     <% } %>
 
-    <a href="/auth/home">← Back to Home</a>
+    <a href="/auth/home.ejs">← Back to Home</a>
   </body>
 </html>

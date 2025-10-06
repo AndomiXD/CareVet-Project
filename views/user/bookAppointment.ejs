@@ -3,7 +3,7 @@
   <label for="petId">Select Pet: </label>
   <select name="petId" required>
     <% pets.forEach(pet=>{%>
-    <option value="<%=pet._id %>"><%=pet.name%>{ <%=pet.species%>}</option>
+    <option value="<%=pet._id %>"><%=pet.petName%> - <%=pet.species%></option>
     <%}) %>
   </select>
   <br />

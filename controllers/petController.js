@@ -39,11 +39,33 @@ exports.getPetById = async (req, res) => {
   try {
     const pet = await Pet.findById(req.params.id)
 
-    res.render("./pets/show.ejs", { user: req.session.user, pet })
+    res.render("pets/show.ejs", { user: req.session.user, pet })
   } catch (error) {
     console.error("An error has occurred getting a pet!", error.message)
   }
 }
+
+exports.updatePetById = async (req, res) => {
+  try {
+    const pet = await Pet.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    })
+
+    res.redirect(`/pets/${pet._id}`)
+  } catch (error) {
+    console.error("An error has occurred updating a pet!", error.message)
+  }
+}
 exports.get_add_pet = (req, res) => {
   res.render("pets/addPet.ejs")
+}
+
+exports.deletePetById = async (req, res) => {
+  try {
+    await Pet.findByIdAndDelete(req.params.id)
+
+    res.render("./pets/confirm.ejs")
+  } catch (error) {
+    console.error("An error has occurred deleting a pet!", error.message)
+  }
 }

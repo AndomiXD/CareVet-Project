@@ -7,7 +7,8 @@ const appointmentSchema = new mongoose.Schema(
       ref: "Pet",
       required: true,
     },
-    dateTime: Date,
+    date: Date,
+    time: String,
     reason: String,
   },
   { timestamps: true }

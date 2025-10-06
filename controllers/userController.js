@@ -65,9 +65,8 @@ const post_book_appointment = async (req, res) => {
       reason,
     })
     await appointment.save()
-
-    const pets = await Pet.find({ owner: req.session.user._id })
-    res.render("user/viewAppointment.ejs", { pets, appointment })
+    
+    res.redirect("/user/viewAppointment")
   } catch (err) {
     console.log("Error while booking an appointment", err)
     res.send("Error booking appointment" + err.message)
@@ -81,7 +80,7 @@ const get_view_appointment = async (req, res) => {
     const appointments = await Appointment.find({ petId: { $in: petIds } })
       .populate("petId", "petName species breed")
       .sort({ dateTime: 1 })
-    res.render("user/viewAppointment.ejs", { appointments})
+    res.render("user/viewAppointment.ejs", { appointments })
   } catch (err) {
     console.error("Error showing appointments", +err)
     res.send("Error loading appointments" + err.message)

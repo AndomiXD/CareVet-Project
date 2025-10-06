@@ -50,7 +50,7 @@ const get_book_appointment = async (req, res) => {
     })
     res.render("user/bookAppointment.ejs", { pets })
   } catch (err) {
-    console.error("Error loading the appointmrnt form !", err)
+    console.error("Error loading the appointment form !", err)
     res.send("Error loading appointment form" + err.message)
   }
 }
@@ -81,7 +81,7 @@ const get_view_appointment = async (req, res) => {
     const appointments = await Appointment.find({ petId: { $in: petIds } })
       .populate("petId", "petName species breed")
       .sort({ dateTime: 1 })
-    res.render("user/viewAppointment.ejs", { appointments})
+    res.render("user/viewAppointment.ejs", { appointments })
   } catch (err) {
     console.error("Error showing appointments", +err)
     res.send("Error loading appointments" + err.message)

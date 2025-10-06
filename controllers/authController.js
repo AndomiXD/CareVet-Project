@@ -52,7 +52,12 @@ const auth_signin_post = async (req, res) => {
     _id: userInDatabase._id,
   })
 
-  res.render("auth/home.ejs", { user: data })
+  req.session.user = {
+    username: userInDatabase.username,
+    _id: userInDatabase._id,
+  }
+
+  res.redirect(`/auth/home`)
 }
 
 const updatePassword = async (request, respond) => {
@@ -90,10 +95,15 @@ const auth_signout_get = async (req, res) => {
   res.redirect("/auth/sign-in")
 }
 
+const auth_home_get = async (req, res) => {
+  res.render("auth/home.ejs")
+}
+
 module.exports = {
   registerUser,
   auth_signin_get,
   auth_signin_post,
   updatePassword,
   auth_signout_get,
+  auth_home_get,
 }

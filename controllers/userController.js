@@ -50,7 +50,7 @@ const get_book_appointment = async (req, res) => {
     })
     res.render("user/bookAppointment.ejs", { pets })
   } catch (err) {
-    console.error("Error loading the appointmrnt form !", err)
+    console.error("Error loading the appointment form !", err)
     res.send("Error loading appointment form" + err.message)
   }
 }

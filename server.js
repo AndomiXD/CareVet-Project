@@ -25,14 +25,14 @@ const authRouter = require("./routes/authRouter")
 const petRouter = require("./routes/petRouter")
 const userRouter = require("./routes/userRouter")
 
-app.use("/auth", authRouter)
-app.use(isSignedIn)
-app.use("/pets", petRouter)
-app.use("/user", userRouter)
 //Root route
 app.get("/", (request, respond) => {
   respond.render("index.ejs")
 })
+app.use("/auth", authRouter)
+app.use(isSignedIn)
+app.use("/pets", petRouter)
+app.use("/user", userRouter)
 
 const PORT = process.env.PORT ? process.env.PORT : 3000
 

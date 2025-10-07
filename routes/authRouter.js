@@ -16,5 +16,8 @@ router.get("/sign-in", authCtrl.auth_signin_get)
 router.post("/sign-in", authCtrl.auth_signin_post)
 
 router.put("/:id", authCtrl.updatePassword)
+router.get("/:id/update-password", (req, res) => {
+  res.render("./auth/update-password.ejs")
+})
 
 module.exports = router

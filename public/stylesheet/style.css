@@ -28,20 +28,9 @@ h1 {
   display: block;
 }
 
-.submit-field {
+.hyperlink-field {
   text-align: center;
   margin: auto;
   display: block;
-  padding: 10px;
-}
-
-.create-field {
-  color: blue;
-  text-align: center;
-}
-
-.forget-field {
-  color: blue;
-  text-align: center;
   padding: 10px;
 }

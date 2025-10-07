@@ -1,35 +1,31 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>My Appointments</title>
-  </head>
-  <body>
-    <h1>My Appointments</h1>
+<h1>My Appointments</h1>
 
-    <% if (appointments?.length === 0) { %>
-    <p>No appointments booked yet.</p>
-    <% } else { %>
-    <table>
-      <tr>
-        <th>Pet Name</th>
-        <th>Species</th>
-        <th>Breed</th>
-        <th>Date & Time</th>
-        <th>Reason</th>
-      </tr>
-      <% appointments.forEach(appointment => { %>
-      <tr>
-        <td><%= appointment.petId.petName %></td>
-        <td><%= appointment.petId.species %></td>
-        <td><%= appointment.petId.breed %></td>
-        <td><%= appointment.date.toLocaleString()%></td>
-        <td><%= appointment.time%></td>
-        <td><%= appointment.reason %></td>
-      </tr>
-      <% }) %>
-    </table>
-    <% } %>
+<% if (!appointments || appointments.length === 0) { %>
+<p>No appointments booked yet.</p>
+<% } else { %>
+<table>
+  <tr>
+    <th>Pet Name</th>
+    <th>Species</th>
+    <th>Breed</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Reason</th>
+    <th>Actions</th>
+  </tr>
 
-    <a href="/auth/home.ejs">← Back to Home</a>
-  </body>
-</html>
+  <% appointments.forEach(appointment => { %>
+  <tr>
+    <td><%= appointment.petId.petName %></td>
+    <td><%= appointment.petId.species %></td>
+    <td><%= appointment.petId.breed %></td>
+    <td><%= appointment.date.toLocaleDateString()%></td>
+    <td><%= appointment.time %></td>
+    <td><%= appointment.reason %></td>
+    <td class="actions">
+      <a href="/user/appointments/<%= appointment._id %>/edit">Edit</a>
+    </td>
+  </tr>
+  <% }) %>
+</table>
+<% } %>

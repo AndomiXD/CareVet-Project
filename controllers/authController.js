@@ -100,6 +100,8 @@ const auth_home_get = async (req, res) => {
   res.render("auth/home.ejs")
 }
 
+
+exports.auth_profile
 module.exports = {
   registerUser,
   auth_signin_get,

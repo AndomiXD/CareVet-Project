@@ -1,0 +1,32 @@
+<h1>Edit Appointment</h1>
+<form action="/user/appointments/<%= appointment._id %>?_method=PUT" method="POST">
+  <label for="petId">Pet:</label>
+  <select name="petId" required>
+    <% pets.forEach(pet => { %>
+      <option value="<%= pet._id %>" <%= pet._id.equals(appointment.petId._id) ? "selected" : "" %>>
+        <%= pet.petName %> (<%= pet.species %>)
+      </option>
+    <% }) %>
+  </select>
+  <!-- https://stackoverflow.com/questions/47066555/remove-time-after-converting-date-toisostring -->
+  <!-- A link I found to display the date in the field, apparently ToLocaleString() doesn't work -->
+  <label for="date">Date:</label>
+  <input
+    type="date"
+    name="date"
+    value="<%= appointment.date.toISOString().split('T')[0] %>"
+    required
+  />
+
+  <label for="time">Time:</label>
+  <input type="time" name="time" value="<%= appointment.time %>" required />
+
+  <label for="reason">Reason:</label>
+  <input type="text" name="reason" value="<%= appointment.reason %>" required />
+
+  <button type="submit">Update Appointment</button>
+</form>
+
+<form action="/user/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete Appointment</button>
+</form>

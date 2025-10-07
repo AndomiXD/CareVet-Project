@@ -7,6 +7,8 @@ const db = require("./db")
 app.use(logger("dev"))
 const methodOverride = require("method-override")
 const isSignedIn = require("./middleware/is-sign-in")
+const passUserToView = require("./middleware/pass-user-to-view")
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride("_method"))
@@ -17,6 +19,8 @@ app.use(
     saveUninitialized: true,
   })
 )
+app.use(passUserToView)
+
 //Require Routes
 const authRouter = require("./routes/authRouter")
 const petRouter = require("./routes/petRouter")

@@ -50,7 +50,7 @@ const get_book_appointment = async (req, res) => {
     })
     res.render("user/bookAppointment.ejs", { pets })
   } catch (err) {
-    console.error("Error loading the appointmrnt form !", err)
+    console.error("Error loading the appointment form !", err)
     res.send("Error loading appointment form" + err.message)
   }
 }
@@ -87,15 +87,65 @@ const get_view_appointment = async (req, res) => {
   }
 }
 
+
 const edit_appointments = async (req, res) => {
   try {
     const appointment = await Appointment.findByIdAndUpdate(req.session.user._id, req.body, {
       new: true,
     })
-
     res.redirect("../User/editAppointments")
-  } catch (error) {
+
+
+} catch (error) {
     console.error("An error has occurred updating an appointment!", error.message)
+  }}
+const get_edit_appointment = async (req, res) => {
+  try {
+    const appointment = await Appointment.findById(req.params.id).populate(
+      "petId"
+    )
+    const pets = await Pet.find({ owner: req.session.user._id })
+
+    if (!appointment) {
+      return res.send("Appointment not found")
+    }
+
+    res.render("user/editAppointment.ejs", { appointment, pets })
+  } catch (error) {
+    console.error("Error loading edit appointment form:", error.message)
+    res.send("Error loading form.")
+  }
+}
+
+const put_edit_appointment = async (req, res) => {
+  try {
+    const { petId, date, time, reason } = req.body
+
+    await Appointment.findByIdAndUpdate(req.params.id, {
+      petId,
+      date,
+      time,
+      reason,
+    })
+
+    res.redirect("/user/viewAppointment")
+  } catch (error) {
+    console.error("Error updating appointment:", error.message)
+    res.send("Error updating appointment.")
+  }
+}
+
+const delete_appointment = async (req, res) => {
+  try {
+    const appointment = await Appointment.findByIdAndDelete(req.params.id)
+    if (!appointment) {
+      return res.send("Appointment not found.")
+    }
+    res.redirect("/user/viewAppointment")
+  } catch (error) {
+    console.error("Error deleting appointment:", error.message)
+    res.send("Error deleting appointment.")
+
   }
 }
 
@@ -106,5 +156,10 @@ module.exports = {
   get_view_appointment,
   update_profile_get,
   update_profile_put,
+
   edit_appointments,
+
+  get_edit_appointment,
+  put_edit_appointment,
+  delete_appointment,
 }

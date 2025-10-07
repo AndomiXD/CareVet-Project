@@ -3,6 +3,8 @@ const router = require("express").Router()
 const authCtrl = require("../controllers/authController")
 
 //Routes
+router.get("/home", authCtrl.auth_home_get)
+
 router.get("/sign-up", (request, respond) => {
   respond.render("./auth/sign-up.ejs")
 })

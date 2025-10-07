@@ -3,6 +3,12 @@
 body {
   background-color: white;
 }
+main {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  min-height: 100vh;
+}
 
 h1 {
   text-align: center;
@@ -14,6 +20,7 @@ h1 {
   /* align-items: center; */
   margin: 0;
 }
+
 .logo {
   width: 150px;
   height: 150px;
@@ -33,4 +40,11 @@ h1 {
   margin: auto;
   display: block;
   padding: 10px;
+}
+
+.signin-page {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  flex-direction: column;
 }

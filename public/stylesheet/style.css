@@ -3,6 +3,12 @@
 body {
   background-color: white;
 }
+main {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  min-height: 100vh;
+}
 
 h1 {
   text-align: center;
@@ -14,6 +20,7 @@ h1 {
   /* align-items: center; */
   margin: 0;
 }
+
 .logo {
   width: 150px;
   height: 150px;
@@ -28,20 +35,16 @@ h1 {
   display: block;
 }
 
-.submit-field {
+.hyperlink-field {
   text-align: center;
   margin: auto;
   display: block;
   padding: 10px;
 }
 
-.create-field {
-  color: blue;
-  text-align: center;
-}
-
-.forget-field {
-  color: blue;
-  text-align: center;
-  padding: 10px;
+.signin-page {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  flex-direction: column;
 }

@@ -1,12 +1,24 @@
-
-<h1>Sign In</h1>
-<form action="/auth/sign-in" method="post">
-  <label for="username"> Username </label>
-  <input type="text" name="username" id="username" />
-  <br />
-  <label for="password"> Password </label>
-  <input type="password" name="password" id="password" />
-  <br />
-
-  <button type="submit">Sign In</button>
-</form>
+<link rel="stylesheet" href="/stylesheet/style.css" />
+<body class="sign-body">
+  <main>
+    <div class="signin-page">
+    <img
+      src="/images/CareVet-Logo.png"
+      alt="Care Vet Logo"
+      class="logo"
+    />
+    <h1>CareVet</h1>
+    <h1>Sign In</h1>
+    <div class="field">
+      <form action="/auth/sign-in" method="post">
+      <input type="text" name="username" id="username" placeholder="Username"/>
+      <br />
+      <input type="password" name="password" id="password" placeholder="Password"/>
+      <br />
+    </div>
+    <div class="hyperlink-field">
+    <button type="submit">Sign In</button>
+    </div>
+  </form>
+  </main>
+</body>

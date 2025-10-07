@@ -3,6 +3,7 @@ const router = express.Router()
 
 const userCtrl = require("../controllers/userController")
 const isSignedIn = require("../middleware/is-sign-in")
+const upload = require("../middleware/upload")
 
 // Routes
 router.get("/bookAppointment", isSignedIn, userCtrl.get_book_appointment)
@@ -13,7 +14,7 @@ router.get("/:id", userCtrl.edit_appointments)
 router.put("/:id/editAppointments", userCtrl.edit_appointments)
 
 router.get("/:id/update-profile", userCtrl.update_profile_get)
-router.put("/:id", userCtrl.update_profile_put)
+router.put("/:id", upload.single("image"), userCtrl.update_profile_put)
 router.get("/:id", userCtrl.getProfile)
 
 router.get("/appointments/:id/edit", userCtrl.get_edit_appointment)

@@ -33,15 +33,37 @@ const update_profile_get = async (req, res) => {
   res.render("user/update-profile.ejs", { user })
 }
 
+// const update_profile_put = async (req, res) => {
+//   try {
+//     await User.findByIdAndUpdate(req.params.id, req.body)
+//     res.send(`Profile successfully updated`)
+//   } catch (error) {
+//     console.error("Error has occurred when updating profile!", error.message)
+//   }
+// }
 const update_profile_put = async (req, res) => {
   try {
-    await User.findByIdAndUpdate(req.params.id, req.body)
-    res.send(`Profile successfully updated`)
-  } catch (error) {
-    console.error("Error has occurred when updating profile!", error.message)
+    const user = await User.findById(req.params.id)
+    if (!user) return res.send("User not found")
+
+    user.firstName = req.body.firstName || user.firstName
+    user.lastName = req.body.lastName || user.lastName
+    user.username = req.body.username || user.username
+    user.address = req.body.address || user.address
+    user.phone = req.body.phone || user.phone
+
+    if (req.file) {
+      user.image = "/uploads/" + req.file.filename
+    }
+
+    await user.save()
+    res.redirect("/user/" + user._id)
+  } catch (err) {
+    console.error("Error updating profile!", err.message)
+    res.send("Error updating profile")
   }
 }
-//////////////////////////////////////////////////////////////////
+
 const get_book_appointment = async (req, res) => {
   try {
     const pets = await Pet.find({

@@ -1,5 +1,9 @@
 <h2>Update Profile for User <%=user.username%></h2>
-<form action="/user/<%= user._id %>?_method=PUT" method="POST">
+<form
+  action="/user/<%= user._id %>?_method=PUT"
+  method="POST"
+  enctype="multipart/form-data"
+>
   <input
     type="text"
     name="firstName"
@@ -39,13 +43,10 @@
     value="<%= user.phone%>"
     required
   />
-  <!-- <input type="password" name="oldPassword" placeholder="Old Password" />
-  <input type="password" name="newPassword" placeholder="New Password" />
-  <input
-    type="password"
-    name="confirmPassword"
-    placeholder="Confirm New Password"
-  /> -->
+  <br />
+  <input type="file" name="image" accept="image/*" />
+  <br />
+
   <button type="submit">Update</button>
 </form>
 

@@ -91,13 +91,12 @@ const updatePassword = async (req, res) => {
 
 const auth_signout_get = async (req, res) => {
   req.session.destroy()
-  res.redirect("/auth/sign-in")
+  res.redirect("/")
 }
 
 const auth_home_get = async (req, res) => {
   res.render("auth/home.ejs")
 }
-
 
 exports.auth_profile
 module.exports = {

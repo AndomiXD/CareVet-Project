@@ -65,7 +65,7 @@ const post_book_appointment = async (req, res) => {
       reason,
     })
     await appointment.save()
-    
+
     res.redirect("/user/viewAppointment")
   } catch (err) {
     console.log("Error while booking an appointment", err)
@@ -87,6 +87,56 @@ const get_view_appointment = async (req, res) => {
   }
 }
 
+// Show the edit appointment form
+const get_edit_appointment = async (req, res) => {
+  try {
+    const appointment = await Appointment.findById(req.params.id).populate(
+      "petId"
+    )
+    const pets = await Pet.find({ owner: req.session.user._id })
+
+    if (!appointment) {
+      return res.send("Appointment not found")
+    }
+
+    res.render("user/editAppointment.ejs", { appointment, pets })
+  } catch (error) {
+    console.error("Error loading edit appointment form:", error.message)
+    res.send("Error loading form.")
+  }
+}
+
+const put_edit_appointment = async (req, res) => {
+  try {
+    const { petId, date, time, reason } = req.body
+
+    await Appointment.findByIdAndUpdate(req.params.id, {
+      petId,
+      date,
+      time,
+      reason,
+    })
+
+    res.redirect("/user/viewAppointment")
+  } catch (error) {
+    console.error("Error updating appointment:", error.message)
+    res.send("Error updating appointment.")
+  }
+}
+
+const delete_appointment = async (req, res) => {
+  try {
+    const appointment = await Appointment.findByIdAndDelete(req.params.id)
+    if (!appointment) {
+      return res.send("Appointment not found.")
+    }
+    res.redirect("/user/viewAppointment")
+  } catch (error) {
+    console.error("Error deleting appointment:", error.message)
+    res.send("Error deleting appointment.")
+  }
+}
+
 module.exports = {
   getProfile,
   get_book_appointment,
@@ -94,4 +144,7 @@ module.exports = {
   get_view_appointment,
   update_profile_get,
   update_profile_put,
+  get_edit_appointment,
+  put_edit_appointment,
+  delete_appointment,
 }

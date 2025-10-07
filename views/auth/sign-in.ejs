@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/stylesheet/style.css" />
-<body>
+<body class="sign-body">
+  <main>
     <div class="signin-page">
     <img
       src="/images/CareVet-Logo.png"
@@ -10,15 +11,14 @@
     <h1>Sign In</h1>
     <div class="field">
       <form action="/auth/sign-in" method="post">
-      <label for="username"> Username </label>
-      <input type="text" name="username" id="username" />
+      <input type="text" name="username" id="username" placeholder="Username"/>
       <br />
-      <label for="password"> Password </label>
-      <input type="password" name="password" id="password" />
+      <input type="password" name="password" id="password" placeholder="Password"/>
       <br />
     </div>
     <div class="hyperlink-field">
     <button type="submit">Sign In</button>
     </div>
   </form>
+  </main>
 </body>

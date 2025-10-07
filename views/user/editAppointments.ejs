@@ -1,0 +1,21 @@
+<h1>Edit your appointment</h1>
+
+<form action="/user/<%=bookAppointment %>?_method=PUT" method="post">
+  <label for="petId">Select Pet: </label>
+  <select name="petId" required>
+    <% pets.forEach(pet=>{%>
+    <option value="<%=pet._id %>"><%=pet.petName%> - <%=pet.species%></option>
+    <%}) %>
+  </select>
+  <br />
+  <label>Date: </label>
+  <input type="date" name="date" value="<%=appointment.date %>" required />
+  <br />
+  <label>Time: </label>
+  <input type="time" name="time" required />
+  <br />
+  <label>Reason: </label>
+  <input type="text" name="reason" required />
+  <br />
+  <button type="submit">Book Appointment</button>
+</form>

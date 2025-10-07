@@ -65,7 +65,7 @@ const post_book_appointment = async (req, res) => {
       reason,
     })
     await appointment.save()
-    
+
     res.redirect("/user/viewAppointment")
   } catch (err) {
     console.log("Error while booking an appointment", err)
@@ -87,6 +87,18 @@ const get_view_appointment = async (req, res) => {
   }
 }
 
+const edit_appointments = async (req, res) => {
+  try {
+    const appointment = await Appointment.findByIdAndUpdate(req.session.user._id, req.body, {
+      new: true,
+    })
+
+    res.redirect("../User/editAppointments")
+  } catch (error) {
+    console.error("An error has occurred updating an appointment!", error.message)
+  }
+}
+
 module.exports = {
   getProfile,
   get_book_appointment,
@@ -94,4 +106,5 @@ module.exports = {
   get_view_appointment,
   update_profile_get,
   update_profile_put,
+  edit_appointments,
 }

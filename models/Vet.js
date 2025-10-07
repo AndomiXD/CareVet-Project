@@ -8,6 +8,7 @@ const vetSchema = new mongoose.Schema({
     required: true,
   },
 })
+
 const Vet = mongoose.model("Vet", vetSchema)
 
 module.exports = Vet

@@ -4,8 +4,7 @@ const Appointment = require("../models/Appointment")
 
 const getProfile = async (req, res) => {
   try {
-    const userId = req.session.user._id // it is to get userId from session
-    const user = await User.findById(req.params.id)
+    const user = await User.findById(req.session.user._id)
 
     pets = await Pet.find({ owner: user._id })
     const data = {

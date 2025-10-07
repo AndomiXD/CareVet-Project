@@ -10,7 +10,7 @@
 ***
 
 ### ***Description***
-#### CareVet is a website in which a User can register, and add his pets, alongside their own profile; such as pictures, descriptions and such. The User can also book appointments for a select said vets for professional grooming of their pet.
+#### CareVet is a website in which a User can register to the website, and add his pets, and also book appointments for their pet. Vets can view users appointments.
 
 ### ***Deployed version***
 

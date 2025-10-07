@@ -47,14 +47,15 @@ const auth_signin_post = async (req, res) => {
     return res.send("Wrong Password, please try again later !")
   }
 
-  const data = (req.session.user = {
-    username: userInDatabase.username,
-    _id: userInDatabase._id,
-  })
+  // const data = (req.session.user = {
+  //   username: userInDatabase.username,
+  //   _id: userInDatabase._id,
+  // })
 
   req.session.user = {
     username: userInDatabase.username,
     _id: userInDatabase._id,
+    role: userInDatabase.role,
   }
 
   res.redirect(`/auth/home`)

@@ -1,4 +1,6 @@
 <h1>Home Page</h1>
+
+<% if(user.role === "User") { %>
 <h2>Welcome <%= user.username %> !</h2>
 <br />
 <a href="/user/<%= user._id%>">View Profile</a>
@@ -12,3 +14,8 @@
 <a href="/user/viewAppointment">View My Appointments</a>
 <br />
 <a href="/auth/sign-out">Sign Out</a>
+
+<% } else if(user.role === "Vet") {%>
+<a href="/user/viewAppointment">View Appointments</a>
+<br />
+<% } %>

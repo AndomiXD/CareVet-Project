@@ -60,33 +60,34 @@ const auth_signin_post = async (req, res) => {
   res.redirect(`/auth/home`)
 }
 
-const updatePassword = async (request, respond) => {
+const updatePassword = async (req, res) => {
   try {
-    const user = await User.findById(request.params.id)
+    const user = await User.findById(req.params.id)
     if (!user) {
-      return respond.send("No user with that ID exists.")
+      return res.send("No user with that ID exists!")
+      // This can be an EJS page later...
     }
-
     const validPassword = bcrypt.compareSync(
-      request.body.oldPassword,
+      req.body.oldPassword,
       user.password
     )
     if (!validPassword) {
-      return respond.send(
-        "Your old password was not correct! Please try again."
-      )
+      return res.send("Your old password was not correct! Please try again.")
+      // This can also be an EJS page...
     }
-
-    if (request.body.newPassword !== request.body.confirmPassword) {
-      return respond.send("Password and Confirm Password must match")
+    if (req.body.newPassword !== req.body.confirmPassword) {
+      return res.send("Password and Confirm Password must match")
     }
-    const hashedPassword = bcrypt.hashSync(request.body.newPassword, 12)
-
+    const hashedPassword = bcrypt.hashSync(req.body.newPassword, 12)
     user.password = hashedPassword
+
     await user.save()
-    respond.send("Password Updated successfully.")
+    res.render("./auth/confirm.ejs", { user })
   } catch (error) {
-    console.error("Error has occurred when updating password!", error.message)
+    console.error(
+      "An error has occurred updating a user's password!",
+      error.message
+    )
   }
 }
 

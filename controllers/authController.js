@@ -65,7 +65,6 @@ const updatePassword = async (req, res) => {
     const user = await User.findById(req.params.id)
     if (!user) {
       return res.send("No user with that ID exists!")
-      // This can be an EJS page later...
     }
     const validPassword = bcrypt.compareSync(
       req.body.oldPassword,
@@ -73,7 +72,6 @@ const updatePassword = async (req, res) => {
     )
     if (!validPassword) {
       return res.send("Your old password was not correct! Please try again.")
-      // This can also be an EJS page...
     }
     if (req.body.newPassword !== req.body.confirmPassword) {
       return res.send("Password and Confirm Password must match")
@@ -100,6 +98,8 @@ const auth_home_get = async (req, res) => {
   res.render("auth/home.ejs")
 }
 
+
+exports.auth_profile
 module.exports = {
   registerUser,
   auth_signin_get,

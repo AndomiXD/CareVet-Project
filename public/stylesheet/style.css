@@ -803,3 +803,24 @@ h1 {
   border-color: #f0a04b;
   box-shadow: 0 0 5px rgba(74, 144, 166, 0.4);
 }
+
+.pet-info-box {
+  background-color: #ecf3f4;
+  border: 2px solid #65a8c2;
+  border-radius: 10px;
+  padding: 15px 20px;
+  font-family: "Abel", sans-serif;
+}
+
+.pet-info-box p {
+  margin: 6px 0;
+  font-size: 1.05em;
+  color: #333;
+}
+
+.profile-subheader {
+  font-family: "Jura", sans-serif;
+  color: #4a90a6;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}

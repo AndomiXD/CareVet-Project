@@ -1,4 +1,19 @@
 <h1>Edit Appointment</h1>
+
+<%if(user.role==="Vet") {%>
+
+<label for="date">Date: <%= appointment.date.toISOString().split('T')[0] %></label>
+<br>
+<label for="time">Time: <%= appointment.time %></label>
+<br>
+<label for="reason">Reason: <%= appointment.reason %></label>
+
+<form action="/user/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete Appointment</button>
+</form>
+
+<%} else if (user.role === "User"){%>
+
 <form action="/user/appointments/<%= appointment._id %>?_method=PUT" method="POST">
   <label for="petId">Pet:</label>
   <select name="petId" required>
@@ -23,10 +38,11 @@
 
   <label for="reason">Reason:</label>
   <input type="text" name="reason" value="<%= appointment.reason %>" required />
-
+<br>
   <button type="submit">Update Appointment</button>
 </form>
 
 <form action="/user/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
   <button type="submit">Delete Appointment</button>
 </form>
+<%}%>

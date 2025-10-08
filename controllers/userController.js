@@ -88,13 +88,20 @@ const post_book_appointment = async (req, res) => {
 
 const get_view_appointment = async (req, res) => {
   try {
+    //user specific pets
     const pets = await Pet.find({ owner: req.session.user._id })
     const petIds = pets.map((pet) => pet._id)
     const appointments = await Appointment.find({ petId: { $in: petIds } })
       .populate("petId", "petName species breed")
       .sort({ dateTime: 1 })
-    const vetAppointments = await Appointment.find({})
-    console.log({ vetAppointments })
+
+    //all pets for vet
+    const allPets = await Pet.find({})
+    const allPetsId = allPets.map((pet) => pet._id)
+    const vetAppointments = await Appointment.find({ petId: { $in: allPetsId } })
+      .populate("petId", "petName species breed")
+      .sort({ dateTime: 1 })
+
     res.render("user/viewAppointment.ejs", { appointments, vetAppointments })
   } catch (err) {
     console.error("Error showing appointments", +err)
@@ -144,7 +151,7 @@ const delete_appointment = async (req, res) => {
     if (!appointment) {
       return res.send("Appointment not found.")
     }
-    res.redirect("/user/viewAppointment")
+     res.render("./user/confirm.ejs")
   } catch (error) {
     console.error("Error deleting appointment:", error.message)
     res.send("Error deleting appointment.")

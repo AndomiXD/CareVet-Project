@@ -1,5 +1,18 @@
-<%if(user.role === "Vet"){%>
+<%if(user.role === "Vet"){%> <% if (!vetAppointments || vetAppointments.length
+=== 0) { %>
+<p>No appointments booked yet.</p>
+<% } else { %>
 <table>
+  <tr>
+    <th>Pet Name</th>
+    <th>Species</th>
+    <th>Breed</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Reason</th>
+    <th>Actions</th>
+  </tr>
+
   <% vetAppointments.forEach(vetAppointment => { %>
   <tr>
     <td><%= vetAppointment.petId.petName %></td>
@@ -12,8 +25,9 @@
       <a href="/user/appointments/<%= vetAppointment._id %>/edit">Edit</a>
     </td>
   </tr>
+  <%})%>
 </table>
-<% })}else if(user.role === "User"){ %> <% if (!appointments ||
+<%}} else if(user.role === "User"){ %> <% if (!appointments ||
 appointments.length === 0) { %>
 <p>No appointments booked yet.</p>
 <% } else { %>

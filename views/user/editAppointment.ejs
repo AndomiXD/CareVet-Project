@@ -7,24 +7,34 @@
   <h1 class="profile-header">Edit Appointment</h1>
 
   <% if (user.role === "Vet") { %>
-    <div class="appointment-container">
-      <div class="appointment-left">
-        <label>Date:</label>
-        <p><%= appointment.date.toISOString().split('T')[0] %></p>
-
-        <label>Time:</label>
-        <p><%= appointment.time %></p>
-
-        <label>Reason:</label>
-        <p><%= appointment.reason %></p>
-
-        <form action="/user/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
-          <div class="book-btn-container">
-            <button type="submit" class="book-btn">Delete Appointment</button>
-          </div>
-        </form>
+  <div class="appointment-container">
+    <div class="appointment-left">
+      <h2 class="profile-subheader">Pet Information</h2>
+      <div class="pet-info-box">
+        <p><strong>Name:</strong> <%= appointment.petId.petName %></p>
+        <p><strong>Species:</strong> <%= appointment.petId.species %></p>
+        <p><strong>Breed:</strong> <%= appointment.petId.breed %></p>
       </div>
+
+      <h2 class="profile-subheader">Appointment Details</h2>
+
+        <!-- https://stackoverflow.com/questions/47066555/remove-time-after-converting-date-toisostring --> <!-- A link I found to display the date in the field, apparently ToLocaleString() doesn't work -->
+      <div class="pet-info-box">
+        <p><strong>Date:</strong> <%= appointment.date.toISOString().split('T')[0] %></p>
+        <p><strong>Time:</strong> <%= appointment.time %></p>
+        <p><strong>Reason:</strong> <%= appointment.reason %></p>
+      </div>
+
+      <form
+        action="/user/appointments/<%= appointment._id %>?_method=DELETE"
+        method="POST"
+      >
+        <div class="book-btn-container">
+          <button type="submit" class="delete-btn">Delete Appointment</button>
+        </div>
+      </form>
     </div>
+  </div>
 
   <% } else if (user.role === "User") { %>
 

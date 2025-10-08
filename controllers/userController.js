@@ -114,7 +114,8 @@ const get_view_appointment = async (req, res) => {
 const get_edit_appointment = async (req, res) => {
   try {
     const appointment = await Appointment.findById(req.params.id).populate(
-      "petId"
+      "petId",
+      "petName species breed"
     )
     const pets = await Pet.find({ owner: req.session.user._id })
 
@@ -122,7 +123,11 @@ const get_edit_appointment = async (req, res) => {
       return res.send("Appointment not found")
     }
 
-    res.render("user/editAppointment.ejs", { appointment, pets })
+    res.render("user/editAppointment.ejs", {
+      appointment,
+      pets,
+      user: req.session.user,
+    })
   } catch (error) {
     console.error("Error loading edit appointment form:", error.message)
     res.send("Error loading form.")

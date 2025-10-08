@@ -27,7 +27,7 @@ const registerUser = async (req, res) => {
   res.send(`Thanks for signing up ${user.username}`)
 }
 
-//Get Sign-in Page
+// Get Sign-in Page
 const auth_signin_get = async (req, res) => {
   res.render("auth/sign-in.ejs")
 }

@@ -153,7 +153,7 @@ const delete_appointment = async (req, res) => {
     if (!appointment) {
       return res.send("Appointment not found.")
     }
-    res.render("./user/confirm.ejs")
+    res.redirect("/user/viewAppointment")
   } catch (error) {
     console.error("Error deleting appointment:", error.message)
     res.send("Error deleting appointment.")

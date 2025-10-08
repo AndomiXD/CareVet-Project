@@ -1,60 +1,63 @@
 <link rel="stylesheet" href="/stylesheet/style.css" />
 <%-include("../partials/_navbar.ejs") %>
-<h2 class="update-profile-header">Update Profile for User <%=user.username%></h2>
+<h2 class="update-profile-header">
+  Update Profile for User <%=user.username%>
+</h2>
+</div>
 <div class="update-profile-info">
-<form
-  action="/user/<%= user._id %>?_method=PUT"
-  method="POST"
-  enctype="multipart/form-data"
->
-  <input
-    type="text"
-    name="firstName"
-    placeholder="First Name"
-    value="<%= user.firstName%>"
-    required
-  />
-  <br />
-  <input
-    type="text"
-    name="lastName"
-    placeholder="Last Name"
-    value="<%= user.lastName%>"
-    required
-  />
-  <br />
-  <input
-    type="text"
-    name="username"
-    placeholder="Username"
-    value="<%= user.username%>"
-    required
-  />
-  <br />
-  <input
-    type="text"
-    name="address"
-    placeholder="Address"
-    value="<%= user.address%>"
-    required
-  />
-  <br />
-  <input
-    type="text"
-    name="phone"
-    placeholder="Phone"
-    value="<%= user.phone%>"
-    required
-  />
-  <br />
-  <input type="file" name="image" accept="image/*" />
+  <form
+    action="/user/<%= user._id %>?_method=PUT"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <input
+      type="text"
+      name="firstName"
+      placeholder="First Name"
+      value="<%= user.firstName%>"
+      required
+    />
+    <br />
+    <input
+      type="text"
+      name="lastName"
+      placeholder="Last Name"
+      value="<%= user.lastName%>"
+      required
+    />
+    <br />
+    <input
+      type="text"
+      name="username"
+      placeholder="Username"
+      value="<%= user.username%>"
+      required
+    />
+    <br />
+    <input
+      type="text"
+      name="address"
+      placeholder="Address"
+      value="<%= user.address%>"
+      required
+    />
+    <br />
+    <input
+      type="text"
+      name="phone"
+      placeholder="Phone"
+      value="<%= user.phone%>"
+      required
+    />
+    <br />
+    <input type="file" name="image" accept="image/*" />
+    <br />
+
+    <button type="submit">Update</button>
+  </form>
+
   <br />
 
-  <button type="submit">Update</button>
-</form>
-
-<br />
-
-<a href="/auth/<%=user._id%>/update-password">Change Password</a>
+  <a href="/auth/<%=user._id%>/update-password">Change Password</a>
 </div>
 <%-include("../partials/_footer.ejs") %>

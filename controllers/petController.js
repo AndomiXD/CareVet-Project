@@ -62,7 +62,7 @@ exports.deletePetById = async (req, res) => {
   try {
     await Pet.findByIdAndDelete(req.params.id)
 
-    res.render("./pets/confirm.ejs")
+    res.redirect("/pets/all")
   } catch (error) {
     console.error("An error has occurred deleting a pet!", error.message)
   }

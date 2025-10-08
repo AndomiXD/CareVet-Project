@@ -1,4 +1,20 @@
-<% if (user.role === "Vet" || !appointments || appointments.length === 0) { %>
+<%if(user.role === "Vet"){%>
+<table>
+  <% vetAppointments.forEach(vetAppointment => { %>
+  <tr>
+    <td><%= vetAppointment.petId.petName %></td>
+    <td><%= vetAppointment.petId.species %></td>
+    <td><%= vetAppointment.petId.breed %></td>
+    <td><%= vetAppointment.date.toLocaleDateString()%></td>
+    <td><%= vetAppointment.time %></td>
+    <td><%= vetAppointment.reason %></td>
+    <td class="actions">
+      <a href="/user/appointments/<%= vetAppointment._id %>/edit">Edit</a>
+    </td>
+  </tr>
+</table>
+<% })}else if(user.role === "User"){ %> <% if (!appointments ||
+appointments.length === 0) { %>
 <p>No appointments booked yet.</p>
 <% } else { %>
 <table>
@@ -24,18 +40,5 @@
       <a href="/user/appointments/<%= appointment._id %>/edit">Edit</a>
     </td>
   </tr>
-  <% }) %>
+  <% })}} %>
 </table>
-<% } %> <% vetAppointments.forEach(vetAppointment => { %>
-<tr>
-  <td><%= vetAppointment.petId.petName %></td>
-  <td><%= vetAppointment.petId.species %></td>
-  <td><%= vetAppointment.petId.breed %></td>
-  <td><%= vetAppointment.date.toLocaleDateString()%></td>
-  <td><%= vetAppointment.time %></td>
-  <td><%= vetAppointment.reason %></td>
-  <td class="actions">
-    <a href="/user/appointments/<%= vetAppointment._id %>/edit">Edit</a>
-  </td>
-</tr>
-<% }) %>

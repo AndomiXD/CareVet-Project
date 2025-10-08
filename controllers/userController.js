@@ -33,14 +33,6 @@ const update_profile_get = async (req, res) => {
   res.render("user/update-profile.ejs", { user })
 }
 
-// const update_profile_put = async (req, res) => {
-//   try {
-//     await User.findByIdAndUpdate(req.params.id, req.body)
-//     res.send(`Profile successfully updated`)
-//   } catch (error) {
-//     console.error("Error has occurred when updating profile!", error.message)
-//   }
-// }
 const update_profile_put = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
@@ -93,7 +85,7 @@ const post_book_appointment = async (req, res) => {
     res.send("Error booking appointment" + err.message)
   }
 }
-////////////////////////////////////////////////
+
 const get_view_appointment = async (req, res) => {
   try {
     const pets = await Pet.find({ owner: req.session.user._id })
@@ -101,8 +93,6 @@ const get_view_appointment = async (req, res) => {
     const appointments = await Appointment.find({ petId: { $in: petIds } })
       .populate("petId", "petName species breed")
       .sort({ dateTime: 1 })
-    // const vets = await Pet.find({})
-    // const vetIds = vets.map((pet) => pet._id)
     const vetAppointments = await Appointment.find({})
     console.log({ vetAppointments })
     res.render("user/viewAppointment.ejs", { appointments, vetAppointments })
@@ -112,23 +102,6 @@ const get_view_appointment = async (req, res) => {
   }
 }
 
-const edit_appointments = async (req, res) => {
-  try {
-    const appointment = await Appointment.findByIdAndUpdate(
-      req.session.user._id,
-      req.body,
-      {
-        new: true,
-      }
-    )
-    res.redirect("../User/editAppointments")
-  } catch (error) {
-    console.error(
-      "An error has occurred updating an appointment!",
-      error.message
-    )
-  }
-}
 const get_edit_appointment = async (req, res) => {
   try {
     const appointment = await Appointment.findById(req.params.id).populate(
@@ -185,9 +158,6 @@ module.exports = {
   get_view_appointment,
   update_profile_get,
   update_profile_put,
-
-  edit_appointments,
-
   get_edit_appointment,
   put_edit_appointment,
   delete_appointment,

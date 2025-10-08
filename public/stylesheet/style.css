@@ -611,10 +611,10 @@ h1 {
   text-decoration: underline;
 }
 
-.update-profile-info {
-  width: 95%;
-  padding: 10px;
-}
+  .update-profile-info {
+    width: 95%;
+    padding: 10px;
+  }
 .appointment-container {
   background-color: #b5d6cb;
   max-width: 1437px;
@@ -684,4 +684,86 @@ h1 {
 
 .book-btn:hover {
   background-color: #4a90a6;
+}
+
+/* View Appointments Page */
+
+.appointments-table-container {
+  background-color: #b5d6cb;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  font-family: "Abel", sans-serif;
+}
+
+.appointments-title {
+  text-align: center;
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  color: #333;
+  font-family: "Jura", sans-serif;
+}
+
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.appointments-table th {
+  background-color: #65a8c2;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.appointments-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.appointments-table td:nth-child(6) {
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.appointments-table tr:hover {
+  background-color: #f3f9fa;
+}
+
+.edit-link {
+  color: #65a8c2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.edit-link:hover {
+  text-decoration: underline;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #d9534f;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-family: "Abel", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.delete-btn-container {
+  margin-top: 40px;
+}
+
+.delete-btn:hover {
+  background-color: #b9443f;
 }

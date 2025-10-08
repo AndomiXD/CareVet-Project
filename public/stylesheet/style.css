@@ -10,12 +10,12 @@ main {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #fce7c8; 
+  background-color: #fce7c8;
 }
 
 h1 {
   text-align: center;
-  color: #4c8aa6; 
+  color: #4c8aa6;
   font-family: "Jura", sans-serif;
   padding: 20px;
   display: flex;
@@ -37,7 +37,7 @@ h1 {
   text-align: center;
   margin: auto;
   display: block;
-  color: #7b4b4b; 
+  color: #7b4b4b;
 }
 
 .hyperlink-field {
@@ -70,17 +70,17 @@ h1 {
   width: 300px;
   padding: 5px 15px;
   margin: 7px 0;
-  border: 2px solid #b1c29e; 
+  border: 2px solid #b1c29e;
   border-radius: 8px;
   font-size: 16px;
   outline: none;
-  background-color: #fce7c8; 
+  background-color: #fce7c8;
   transition: all 0.3s ease;
 }
 
 .signin-page input[type="text"]:focus,
 .signin-page input[type="password"]:focus {
-  border-color: #f0a04b; 
+  border-color: #f0a04b;
   box-shadow: 0 0 8px rgba(240, 160, 75, 0.5);
 }
 
@@ -88,7 +88,7 @@ h1 {
   width: 320px;
   padding: 12px;
   margin-top: 15px;
-  background: linear-gradient(135deg, #f0a04b, #fada7a); 
+  background: linear-gradient(135deg, #f0a04b, #fada7a);
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -106,7 +106,7 @@ h1 {
 .profile-header {
   background-color: #fce7c8;
   max-width: 1455px;
-  color: #3b3b3b; 
+  color: #3b3b3b;
   padding: 10px 20px;
   margin: 10px auto;
   text-align: center;
@@ -173,7 +173,7 @@ h1 {
 .update-profile-button {
   display: inline-block;
   padding: 8px 15px;
-  background-color: #f0a04b; 
+  background-color: #f0a04b;
   margin: 15px;
   border: 2px solid #fada7a;
   border-radius: 8px;
@@ -183,7 +183,7 @@ h1 {
 
 .update-profile-button a {
   text-decoration: none;
-  color: #3b3b3b; 
+  color: #3b3b3b;
   font-weight: bold;
   font-size: 16px;
 }
@@ -393,7 +393,7 @@ h1 {
   width: 60%;
   max-width: 500px;
   background: #f9f9f9;
-  border: 2px solid #f0a04b; 
+  border: 2px solid #f0a04b;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -424,7 +424,7 @@ h1 {
 }
 
 .all-pets-container a:hover {
-  color: #f0a04b; 
+  color: #f0a04b;
 }
 
 .show-header {
@@ -573,6 +573,8 @@ h1 {
   color: #3b3b3b;
   margin-top: 20px;
   font-family: "Tinos", serif;
+  width: 95%;
+  padding: 10px;
 }
 
 .update-profile-info input[type="text"],
@@ -615,10 +617,6 @@ h1 {
   text-decoration: underline;
 }
 
-.update-profile-info {
-  width: 95%;
-  padding: 10px;
-}
 .appointment-container {
   background-color: #b1c29e;
   padding: 30px;
@@ -776,4 +774,32 @@ h1 {
 
 .delete-btn:hover {
   background-color: #b9443f;
+}
+
+#updatePasswordForm {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#updatePasswordForm input {
+  padding: 10px;
+  border: 2px solid #f0a04b;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: "Abel", sans-serif;
+  background-color: white;
+  margin-bottom: 15px;
+}
+
+#updatePasswordForm label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+}
+
+#updatePasswordForm input:focus {
+  outline: none;
+  border-color: #f0a04b;
+  box-shadow: 0 0 5px rgba(74, 144, 166, 0.4);
 }

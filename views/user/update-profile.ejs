@@ -1,4 +1,7 @@
-<h2>Update Profile for User <%=user.username%></h2>
+<link rel="stylesheet" href="/stylesheet/style.css" />
+<%-include("../partials/_navbar.ejs") %>
+<h2 class="update-profile-header">Update Profile for User <%=user.username%></h2>
+<div class="update-profile-info">
 <form
   action="/user/<%= user._id %>?_method=PUT"
   method="POST"
@@ -53,3 +56,5 @@
 <br />
 
 <a href="/auth/<%=user._id%>/update-password">Change Password</a>
+</div>
+<%-include("../partials/_footer.ejs") %>

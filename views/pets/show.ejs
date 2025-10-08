@@ -1,7 +1,10 @@
-<h2>Details</h2>
-<p>pet's name: <%= pet.petName %></p>
-<p>Pet's sepcie: <%= pet.species %></p>
-<p>Pet's breed: <%= pet.breed %></p>
+<%-include("../partials/_navbar.ejs")  %>
+<link rel="stylesheet" href="/stylesheet/style.css">
+<h2 class="show-header">Details</h2>
+<div class="show-info">
+<p>Pet Name: <%= pet.petName %></p>
+<p>Pet Specie: <%= pet.species %></p>
+<p>Pet Breed: <%= pet.breed %></p>
 
 <form action="/pets/<%= pet._id %>/edit">
   <button>Edit</button>
@@ -10,3 +13,5 @@
 <form action="/pets/<%= pet._id %>?_method=DELETE" method="POST">
   <button type="submit">Delete</button>
 </form>
+</div>
+<%-include("../partials/_footer.ejs")  %>

@@ -564,7 +564,6 @@ h1 {
   text-decoration: underline;
 }
 
-@media (max-width: 800px) {
   .update-profile-info {
     width: 95%;
     padding: 10px;

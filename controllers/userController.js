@@ -98,7 +98,9 @@ const get_view_appointment = async (req, res) => {
     //all pets for vet
     const allPets = await Pet.find({})
     const allPetsId = allPets.map((pet) => pet._id)
-    const vetAppointments = await Appointment.find({ petId: { $in: allPetsId } })
+    const vetAppointments = await Appointment.find({
+      petId: { $in: allPetsId },
+    })
       .populate("petId", "petName species breed")
       .sort({ dateTime: 1 })
 
@@ -151,7 +153,7 @@ const delete_appointment = async (req, res) => {
     if (!appointment) {
       return res.send("Appointment not found.")
     }
-     res.render("./user/confirm.ejs")
+    res.render("./user/confirm.ejs")
   } catch (error) {
     console.error("Error deleting appointment:", error.message)
     res.send("Error deleting appointment.")

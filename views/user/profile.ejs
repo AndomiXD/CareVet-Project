@@ -1,14 +1,21 @@
+<%- include ("../partials/_navbar.ejs") %>
+
 <link rel="stylesheet" href="/stylesheet/partials.css">
 <link rel="stylesheet" href="/stylesheet/style.css">
-
-<h1>Profile</h1>
-<div class="profile-pic">
-<a href=<%= `/user/${user._id}/update-profile` %>>Update Profile</a>
-    <img src="<%= user.image %>" alt="Profile Picture" width="170px">
-    </div>
-    <div class="profile-page">
-    <h2><%= user.firstName %> <%= user.lastName %></h2>
+<body class="profile-page">
+<h1 class="profile-header">Profile</h1>
+<div class="profile-container">
+    <div class="profile-info">
+    <h2>First name: <%= user.firstName %></h2>
+    <h2>Last name: <%= user.lastName %></h2>
     <h2>Username: <%= user.username %></h2>
     <h2>Address: <%= user.address %></h2>
     <h2>Phone: <%= user.phone %></h2>
+    </div>
+    <div class="profile-pic">
+    <img src="<%= user.image %>" alt="Profile Picture" width="170px">
+    <a href=<%= `/user/${user._id}/update-profile` %>>Update Profile</a>
+    </div>
+    </div>
 </div>
+</body>

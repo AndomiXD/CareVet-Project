@@ -49,7 +49,54 @@ h1 {
   flex-direction: column;
 }
 
-.profile-page {
+.profile-header {
+  background-color: #65a8c2;
+  max-width: 1455px; /* Keep this max width */
+  color: #ecf3f4;
+  padding: 10px 20px;
+  margin: 10px auto;
   text-align: center;
-  background-color: ECF3F4;
+}
+
+.profile-container {
+  background-color: #b5d6cb;
+  padding: 30px;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.profile-page {
+  background-color: white;
+  background-size: cover;
+}
+
+.profile-info {
+  text-align: left;
+  flex-grow: 1;
+  max-width: 70%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.profile-info h2 {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.profile-pic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.profile-pic img {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ccc;
 }

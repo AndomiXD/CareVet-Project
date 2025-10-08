@@ -1,58 +1,92 @@
-<%if(user.role === "Vet"){%> <% if (!vetAppointments || vetAppointments.length
-=== 0) { %>
-<p>No appointments booked yet.</p>
-<% } else { %>
-<table>
-  <tr>
-    <th>Pet Name</th>
-    <th>Species</th>
-    <th>Breed</th>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Reason</th>
-    <th>Actions</th>
-  </tr>
+<%- include("../partials/_navbar.ejs") %>
 
-  <% vetAppointments.forEach(vetAppointment => { %>
-  <tr>
-    <td><%= vetAppointment.petId.petName %></td>
-    <td><%= vetAppointment.petId.species %></td>
-    <td><%= vetAppointment.petId.breed %></td>
-    <td><%= vetAppointment.date.toLocaleDateString()%></td>
-    <td><%= vetAppointment.time %></td>
-    <td><%= vetAppointment.reason %></td>
-    <td class="actions">
-      <a href="/user/appointments/<%= vetAppointment._id %>/edit">Edit</a>
-    </td>
-  </tr>
-  <%})%>
-</table>
-<%}} else if(user.role === "User"){ %> <% if (!appointments ||
-appointments.length === 0) { %>
-<p>No appointments booked yet.</p>
-<% } else { %>
-<table>
-  <tr>
-    <th>Pet Name</th>
-    <th>Species</th>
-    <th>Breed</th>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Reason</th>
-    <th>Actions</th>
-  </tr>
+<link rel="stylesheet" href="/stylesheet/partials.css" />
+<link rel="stylesheet" href="/stylesheet/style.css" />
 
-  <% appointments.forEach(appointment => { %>
-  <tr>
-    <td><%= appointment.petId.petName %></td>
-    <td><%= appointment.petId.species %></td>
-    <td><%= appointment.petId.breed %></td>
-    <td><%= appointment.date.toLocaleDateString()%></td>
-    <td><%= appointment.time %></td>
-    <td><%= appointment.reason %></td>
-    <td class="actions">
-      <a href="/user/appointments/<%= appointment._id %>/edit">Edit</a>
-    </td>
-  </tr>
-  <% })}} %>
-</table>
+<body class="profile-page">
+  <h1 class="profile-header">Appointments</h1>
+
+  <div class="appointment-container">
+    <% if (user.role === "Vet") { %> <% if (!vetAppointments ||
+    vetAppointments.length === 0) { %>
+    <p>No appointments booked yet.</p>
+    <% } else { %>
+    <div class="appointments-table-container">
+      <h2 class="appointments-title">My Appointments</h2>
+      <table class="appointments-table">
+        <thead>
+          <tr>
+            <th>Pet Name</th>
+            <th>Species</th>
+            <th>Breed</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Reason</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% vetAppointments.forEach(vetAppointment => { %>
+          <tr>
+            <td><%= vetAppointment.petId.petName %></td>
+            <td><%= vetAppointment.petId.species %></td>
+            <td><%= vetAppointment.petId.breed %></td>
+            <td><%= vetAppointment.date.toLocaleDateString() %></td>
+            <td><%= vetAppointment.time %></td>
+            <td><%= vetAppointment.reason %></td>
+            <td>
+              <a
+                href="/user/appointments/<%= vetAppointment._id %>/edit"
+                class="edit-link"
+                >Edit</a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <% } %> <% } else if (user.role === "User") { %> <% if (!appointments ||
+    appointments.length === 0) { %>
+    <p>No appointments booked yet.</p>
+    <% } else { %>
+    <div class="appointments-table-container">
+      <h2 class="appointments-title">My Appointments</h2>
+      <table class="appointments-table">
+        <thead>
+          <tr>
+            <th>Pet Name</th>
+            <th>Species</th>
+            <th>Breed</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Reason</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% appointments.forEach(appointment => { %>
+          <tr>
+            <td><%= appointment.petId.petName %></td>
+            <td><%= appointment.petId.species %></td>
+            <td><%= appointment.petId.breed %></td>
+            <td><%= appointment.date.toLocaleDateString() %></td>
+            <td><%= appointment.time %></td>
+            <td><%= appointment.reason %></td>
+            <td>
+              <a
+                href="/user/appointments/<%= appointment._id %>/edit"
+                class="edit-link"
+                >Edit</a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <% } %> <% } %>
+  </div>
+
+  <%- include("../partials/_footer.ejs") %>
+</body>

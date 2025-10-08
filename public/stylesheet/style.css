@@ -3,22 +3,22 @@
 @import url("https://fonts.googleapis.com/css?family=Abel&display=swap");
 
 body {
-  background-color: #ecf3f4;
+  background-color: white;
 }
-
 main {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-color: #fce7c8; /* palette background */
 }
 
 h1 {
   text-align: center;
-  color: black;
+  color: #4c8aa6; /* palette color */
   font-family: "Jura", sans-serif;
   padding: 20px;
-  display: flexbox;
+  display: flex;
   justify-content: center;
   margin: 0;
 }
@@ -35,13 +35,15 @@ h1 {
   text-align: center;
   margin: auto;
   display: block;
+  color: #7b4b4b; /* palette text color */
 }
 
 .hyperlink-field {
   text-align: center;
   margin: auto;
   display: block;
-  padding: 10px;
+  padding: 3px;
+  color: #f0a04b; /* palette highlight */
 }
 
 .signin-page {
@@ -50,6 +52,51 @@ h1 {
   align-items: center;
   flex-direction: column;
 }
+.signin-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+}
+
+.signin-page input[type="text"],
+.signin-page input[type="password"] {
+  width: 300px;
+  padding: 5px 15px;
+  margin: 7px 0;
+  border: 2px solid #b1c29e; /* sage color from your palette */
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  background-color: #fce7c8; /* beige tone */
+  transition: all 0.3s ease;
+}
+
+.signin-page input[type="text"]:focus,
+.signin-page input[type="password"]:focus {
+  border-color: #f0a04b; /* orangey highlight */
+  box-shadow: 0 0 8px rgba(240, 160, 75, 0.5);
+}
+
+.signin-page button {
+  width: 320px;
+  padding: 12px;
+  margin-top: 15px;
+  background: linear-gradient(135deg, #f0a04b, #fada7a); /* warm gradient */
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signin-page button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 .profile-header {
   background-color: #fce7c8; /* Beige from palette */
   max-width: 1455px;
@@ -564,11 +611,10 @@ h1 {
   text-decoration: underline;
 }
 
-@media (max-width: 800px) {
-  .update-profile-info {
-    width: 95%;
-    padding: 10px;
-  }
+.update-profile-info {
+  width: 95%;
+  padding: 10px;
+}
 .appointment-container {
   background-color: #b5d6cb;
   max-width: 1437px;

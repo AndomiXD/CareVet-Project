@@ -25,7 +25,7 @@ exports.post_add_pet = async (req, res) => {
 
 exports.getAllPets = async (req, res) => {
   try {
-    const pets = await Pet.find({})
+    const pets = await Pet.find({ owner: req.session.user._id })
 
     res.render("pets/all.ejs", { pets })
   } catch (error) {

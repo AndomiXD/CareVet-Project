@@ -1,7 +1,7 @@
 const User = require("../models/User")
 const bcrypt = require("bcrypt")
 
-// user registration
+// user registration | Sign up
 const registerUser = async (req, res) => {
   const userInDatabase = await User.findOne({ username: req.body.username })
 
@@ -26,11 +26,13 @@ const registerUser = async (req, res) => {
 
   res.send(`Thanks for signing up ${user.username}`)
 }
-//user signin
+
+//Get Sign-in Page
 const auth_signin_get = async (req, res) => {
   res.render("auth/sign-in.ejs")
 }
 
+// Sign-in Validation
 const auth_signin_post = async (req, res) => {
   const userInDatabase = await User.findOne({ username: req.body.username })
 
@@ -47,11 +49,6 @@ const auth_signin_post = async (req, res) => {
     return res.send("Wrong Password, please try again later !")
   }
 
-  // const data = (req.session.user = {
-  //   username: userInDatabase.username,
-  //   _id: userInDatabase._id,
-  // })
-
   req.session.user = {
     username: userInDatabase.username,
     _id: userInDatabase._id,
@@ -61,6 +58,7 @@ const auth_signin_post = async (req, res) => {
   res.redirect(`/auth/home`)
 }
 
+// Edit profile -> Update Password
 const updatePassword = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
@@ -90,16 +88,17 @@ const updatePassword = async (req, res) => {
   }
 }
 
+// Sign-out Function
 const auth_signout_get = async (req, res) => {
   req.session.destroy()
   res.redirect("/")
 }
 
+// Get Home Page
 const auth_home_get = async (req, res) => {
   res.render("auth/home.ejs")
 }
 
-exports.auth_profile
 module.exports = {
   registerUser,
   auth_signin_get,

@@ -16,10 +16,12 @@ exports.post_add_pet = async (req, res) => {
       // petPhoto: req.body.photo,
       owner: ownerId,
     })
-    res.send("Pet has been added:" + pet.petName)
+    res.send(
+      `Pet has been added: ${pet.petName} - ${pet.species} - ${pet.breed} - Owner: ${req.session.user.username}`
+    )
   } catch (error) {
     console.error(error)
-    res.status(500).send("Error adding pet" + error.message)
+    res.send("Error adding pet" + error.message)
   }
 }
 

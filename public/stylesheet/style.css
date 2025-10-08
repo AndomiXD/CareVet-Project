@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Abel&display=swap");
 
 body {
   background-color: #ecf3f4;
@@ -49,7 +50,72 @@ h1 {
   flex-direction: column;
 }
 
-.profile-page {
+.profile-header {
+  background-color: #65a8c2;
+  max-width: 1455px; /* Keep this max width */
+  color: #ecf3f4;
+  padding: 10px 20px;
+  margin: 10px auto;
   text-align: center;
-  background-color: ECF3F4;
+}
+
+.profile-container {
+  background-color: #b5d6cb;
+  padding: 30px;
+  max-width: 1437px;
+  height: 407px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Abel", sans-serif;
+}
+
+.profile-page {
+  background-color: white;
+  background-size: cover;
+}
+
+.profile-info {
+  text-align: left;
+  flex-grow: 1;
+  max-width: 55%;
+  /* background-color: white; */
+  border-radius: 10px;
+}
+
+.profile-info-h2 {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid #65a8c2;
+}
+
+.profile-pic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 90px;
+}
+
+.profile-pic img {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid black;
+}
+.update-profile-button {
+  padding: 6px;
+  background-color: rgb(101 168 194);
+  margin: 15px;
+  border: 5px solid 65a8c2;
+  text-decoration: none;
+}
+
+.update-profile-button a {
+  text-decoration: none;
+  color: white;
 }

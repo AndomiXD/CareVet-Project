@@ -50,3 +50,44 @@ footer {
   color: white;
   text-align: center;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+.navbar {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #ecf3f4;
+  display: flex;
+  font-family: "inter", sans-serif;
+}
+.nav-left {
+  align-items: center;
+  display: flex;
+}
+.navbar a {
+  display: block;
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.navbar a:hover {
+  background-color: #4f859b;
+}
+.nav-left .logo {
+  height: 80px;
+  width: 80px;
+}
+.nav-left .logo-name {
+  text-align: center;
+  color: black;
+  font-family: "Jura", sans-serif;
+  font-weight: bold;
+}
+.nav-right {
+  margin-left: 350px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

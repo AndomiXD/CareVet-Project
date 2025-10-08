@@ -29,6 +29,8 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  /* border: 3px solid #f0a04b; palette accent */
+  border-radius: 50%;
 }
 
 .field {
@@ -46,11 +48,15 @@ h1 {
   color: #f0a04b;
 }
 
-.signin-page {
+/* General body styling */
+.index-body {
+  font-family: "Jura", sans-serif;
+  background: linear-gradient(135deg, #fce7c8, #fada7a);
+  height: 100vh;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 .signin-page form {
   display: flex;
@@ -105,6 +111,7 @@ h1 {
   margin: 10px auto;
   text-align: center;
   font-family: "Jura", sans-serif;
+  width: 100%;
 }
 
 .profile-container {
@@ -681,7 +688,7 @@ h1 {
 }
 
 .book-btn:hover {
-  background-color: #4a90a6;
+  background-color: #fada7a; /* palette yellow */
 }
 
 .appointments-table-container {
@@ -697,7 +704,7 @@ h1 {
   text-align: center;
   font-size: 1.4em;
   margin-bottom: 20px;
-  color: #333;
+  color: #3b3b3b;
   font-family: "Jura", sans-serif;
 }
 
@@ -730,7 +737,7 @@ h1 {
 }
 
 .appointments-table tr:hover {
-  background-color: #f3f9fa;
+  background-color: #fce7c8; /* palette beige highlight */
 }
 
 .edit-link {

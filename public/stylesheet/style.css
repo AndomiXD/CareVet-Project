@@ -203,4 +203,75 @@ h1 {
   margin-bottom: 1px;
 }
 
+/* Appointment Pages */
 
+.appointment-container {
+  background-color: #b5d6cb;
+  max-width: 1437px;
+  margin: 0 auto;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: "Abel", sans-serif;
+}
+
+.appointment-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.appointment-left,
+.appointment-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.appointment-left label,
+.appointment-right label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+.appointment-left select,
+.appointment-left input,
+.appointment-right textarea {
+  padding: 10px;
+  border: 2px solid #65a8c2;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: "Abel", sans-serif;
+  background-color: white;
+}
+
+.appointment-right textarea {
+  resize: none;
+}
+
+.book-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 60px auto;
+}
+
+.book-btn {
+  background-color: #65a8c2;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-family: "Abel", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.book-btn:hover {
+  background-color: #4a90a6;
+}

@@ -1,12 +1,13 @@
 <link rel="stylesheet" href="/stylesheet/style.css" />
-<%-include ("../partials/_navbar.ejs")%>
-<h1 class="all-pets-header">All pets</h1>
+<%- include("../partials/_navbar.ejs") %>
+<h1 class="all-pets-header">All Pets</h1>
 <div class="all-pets-container">
-<ul>
-  <% pets.forEach(pet => { %>
-  <li>
-    <a href="/pets/<%= pet._id %>"><%= pet.petName %></a>
-  </li>
-  <% }) %>
-</ul></div>
-<%-include("../partials/_footer.ejs")%>
+  <ul class="all-pets-list">
+    <% pets.forEach(pet => { %>
+      <li>
+        <a href="/pets/<%= pet._id %>"><%= pet.petName %></a>
+      </li>
+    <% }) %>
+  </ul>
+</div>
+<%- include("../partials/_footer.ejs") %>

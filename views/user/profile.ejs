@@ -6,16 +6,19 @@
 <h1 class="profile-header">Profile</h1>
 <div class="profile-container">
     <div class="profile-info">
-    <h2>First name: <%= user.firstName %></h2>
-    <h2>Last name: <%= user.lastName %></h2>
-    <h2>Username: <%= user.username %></h2>
-    <h2>Address: <%= user.address %></h2>
-    <h2>Phone: <%= user.phone %></h2>
+        <h1>Your information</h1>
+    <h2 class="profile-info-h2">First name: <%= user.firstName %></h2>
+    <h2  class="profile-info-h2">Last name: <%= user.lastName %></h2>
+    <h2  class="profile-info-h2">Username: <%= user.username %></h2>
+    <h2  class="profile-info-h2">Address: <%= user.address %></h2>
+    <h2  class="profile-info-h2">Phone: <%= user.phone %></h2>
     </div>
     <div class="profile-pic">
-    <img src="<%= user.image %>" alt="Profile Picture" width="170px">
-    <a href=<%= `/user/${user._id}/update-profile` %>>Update Profile</a>
+    <img src="<%= user.image %>" alt="Profile Picture">
+    <button class="update-profile-button">
+    <a href=<%= `/user/${user._id}/update-profile` %>>Update Profile</a></button>
     </div>
     </div>
 </div>
+ <%- include ("../partials/_footer.ejs") %>
 </body>

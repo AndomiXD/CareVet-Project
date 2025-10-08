@@ -29,7 +29,6 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  /* border: 3px solid #f0a04b; palette accent */
   border-radius: 50%;
 }
 
@@ -48,7 +47,6 @@ h1 {
   color: #f0a04b;
 }
 
-/* General body styling */
 .index-body {
   font-family: "Jura", sans-serif;
   background: linear-gradient(135deg, #fce7c8, #fada7a);
@@ -686,7 +684,7 @@ h1 {
 }
 
 .book-btn:hover {
-  background-color: #fada7a; /* palette yellow */
+  background-color: #fada7a;
 }
 
 .appointments-table-container {
@@ -735,7 +733,7 @@ h1 {
 }
 
 .appointments-table tr:hover {
-  background-color: #fce7c8; /* palette beige highlight */
+  background-color: #fce7c8; 
 }
 
 .edit-link {

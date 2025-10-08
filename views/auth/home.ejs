@@ -1,23 +1,29 @@
 <%- include('../partials/_navbar.ejs')%>
+<link rel="stylesheet" href="/stylesheet/style.css" />
+<!-- <div class="nav-header">
+  <h1>Home Page</h1>
+</div> -->
+<div class="slideshow-container">
+  <div class="slide fade">
+    <img src="/images/pet4.jpg" alt="Slide 1" width="20" />
+  </div>
 
-<!-- <h1>Home Page</h1>
+  <div class="slide fade">
+    <img src="/images/pet2.jpg" alt="Slide 2" />
+  </div>
 
-<% if(user.role === "User") { %>
-<h2>Welcome <%= user.username %> !</h2>
-<br />
-<a href="/user/<%= user._id%>">View Profile</a>
-<br />
-<a href="/pets/addPet">Add Pet</a>
-<br />
-<a href="/pets/all">View Pets</a>
-<br />
-<a href="/user/bookAppointment">Book Appointment</a>
-<br />
-<a href="/user/viewAppointment">View My Appointments</a>
-<br />
-<a href="/auth/sign-out">Sign Out</a>
+  <div class="slide fade">
+    <img src="/images/pet3.jpg" alt="Slide 3" />
+  </div>
+</div>
+<div class="home-description">
+  <p>
+    <strong>CareVet Clinic – where pets feel at home!</strong>
+    <br />
+    Providing expert veterinary care <em>day and night, 24/7</em>. From routine
+    check-ups to emergencies, we ensure your furry friends stay happy and
+    healthy. Every pet deserves the <strong>best care, always</strong>.
+  </p>
+</div>
 
-<% } else if(user.role === "Vet") {%>
-<a href="/user/viewAppointment">View Appointments</a>
-<br /> -->
-<% } %> <%- include ("../partials/_navbar.ejs") %>
+<%- include ("../partials/_footer.ejs") %>

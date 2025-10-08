@@ -2,17 +2,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Abel&display=swap");
 
+body {
+  background-color: white;
+}
 main {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #fce7c8; /* palette background */
+  background-color: #fce7c8; 
 }
 
 h1 {
   text-align: center;
-  color: #4c8aa6; /* palette color */
+  color: #4c8aa6; 
   font-family: "Jura", sans-serif;
   padding: 20px;
   display: flex;
@@ -34,39 +37,50 @@ h1 {
   text-align: center;
   margin: auto;
   display: block;
-  color: #7b4b4b; /* palette text color */
+  color: #7b4b4b; 
 }
 
 .hyperlink-field {
   text-align: center;
   margin: auto;
   display: block;
-  padding: 10px;
-  color: #f0a04b; /* palette highlight */
+  padding: 3px;
+  color: #f0a04b;
 }
 
+/* General body styling */
+.index-body {
+  font-family: "Jura", sans-serif;
+  background: linear-gradient(135deg, #fce7c8, #fada7a);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .signin-page form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0px;
 }
 
 .signin-page input[type="text"],
 .signin-page input[type="password"] {
   width: 300px;
-  padding: 12px 15px;
-  margin: 1px 0;
-  border: 2px solid #b1c29e; /* sage color from your palette */
+  padding: 5px 15px;
+  margin: 7px 0;
+  border: 2px solid #b1c29e; 
   border-radius: 8px;
   font-size: 16px;
   outline: none;
-  background-color: #fce7c8; /* beige tone */
+  background-color: #fce7c8; 
   transition: all 0.3s ease;
 }
 
 .signin-page input[type="text"]:focus,
 .signin-page input[type="password"]:focus {
-  border-color: #f0a04b; /* orangey highlight */
+  border-color: #f0a04b; 
   box-shadow: 0 0 8px rgba(240, 160, 75, 0.5);
 }
 
@@ -74,7 +88,7 @@ h1 {
   width: 320px;
   padding: 12px;
   margin-top: 15px;
-  background: linear-gradient(135deg, #f0a04b, #fada7a); /* warm gradient */
+  background: linear-gradient(135deg, #f0a04b, #fada7a); 
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -89,75 +103,11 @@ h1 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* General body styling */
-.index-body {
-  font-family: "Jura", sans-serif;
-  background: linear-gradient(135deg, #fce7c8, #fada7a);
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Main container */
-.index-container {
-  background: #ffffff;
-  border: 2px solid #b1c29e;
-  border-radius: 15px;
-  padding: 40px 50px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Logo styling */
-.logo {
-  width: 150px;
-  height: 150px;
-  display: block;
-  margin: 0 auto 20px auto;
-  border-radius: 15px;
-}
-
-/* Header styling */
-.main-header {
-  font-size: 36px;
-  color: #f0a04b;
-  margin-bottom: 20px;
-}
-
-/* Authentication links container */
-.auth-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-/* Sign in / Sign up links */
-.signin-link {
-  text-decoration: none;
-  padding: 10px 25px;
-  background: #b1c29e;
-  color: white;
-  font-weight: bold;
-  border-radius: 8px;
-  border: 2px solid #b1c29e;
-  transition: all 0.3s ease;
-}
-
-.signin-link:hover {
-  background: #f0a04b;
-  border-color: #f0a04b;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
 .profile-header {
-  background-color: #fce7c8; /* Beige from palette */
+  background-color: #fce7c8;
   max-width: 1455px;
-  color: #3b3b3b; /* Dark readable text */
-  padding: 10px 110px;
+  color: #3b3b3b; 
+  padding: 10px 20px;
   margin: 10px auto;
   text-align: center;
   font-family: "Jura", sans-serif;
@@ -165,7 +115,7 @@ h1 {
 }
 
 .profile-container {
-  background-color: #b1c29e; /* Sage from palette */
+  background-color: #b1c29e;
   padding: 30px;
   max-width: 1437px;
   height: 407px;
@@ -194,7 +144,7 @@ h1 {
   background-color: white;
   border-radius: 10px;
   padding: 10px;
-  border: 2px solid #f0a04b; /* Orangey accent */
+  border: 2px solid #f0a04b;
 }
 
 .profile-pic {
@@ -210,7 +160,7 @@ h1 {
   height: 310px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid #fada7a; /* Soft yellow border */
+  border: 5px solid #fada7a;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -223,9 +173,9 @@ h1 {
 .update-profile-button {
   display: inline-block;
   padding: 8px 15px;
-  background-color: #f0a04b; /* Orangey from palette */
+  background-color: #f0a04b; 
   margin: 15px;
-  border: 2px solid #fada7a; /* Soft yellow border */
+  border: 2px solid #fada7a;
   border-radius: 8px;
   text-decoration: none;
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
@@ -233,13 +183,13 @@ h1 {
 
 .update-profile-button a {
   text-decoration: none;
-  color: #3b3b3b; /* Dark readable text */
+  color: #3b3b3b; 
   font-weight: bold;
   font-size: 16px;
 }
 
 .update-profile-button:hover {
-  background-color: #fada7a; /* Light yellow hover */
+  background-color: #fada7a;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -301,7 +251,6 @@ h1 {
   background-color: white;
   margin: 30px auto;
   max-width: 100%;
-  /* padding: 15px 20px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -319,7 +268,7 @@ h1 {
 .home-description p {
   text-align: center;
   font-size: 25px;
-  color: #5a4b3b; /* warmer and softer text color */
+  color: #5a4b3b;
   font-family: "Tinos", serif;
   font-weight: 500;
   line-height: 1.8;
@@ -338,7 +287,7 @@ h1 {
   color: #4a4a4a;
 }
 .register-pet {
-  background-color: #b1c29e; /* Sage from palette */
+  background-color: #b1c29e;
   padding: 30px;
   max-width: 1437px;
   height: 407px;
@@ -353,7 +302,7 @@ h1 {
   width: 100%;
   padding: 10px 15px;
   margin-bottom: 15px;
-  border: 2px solid #f0a04b; /* Orangey border */
+  border: 2px solid #f0a04b;
   border-radius: 10px;
   font-size: 16px;
   outline: none;
@@ -361,14 +310,14 @@ h1 {
 }
 
 .register-pet input:focus {
-  border-color: #fada7a; /* Soft yellow focus */
+  border-color: #fada7a;
   box-shadow: 0 0 6px rgba(250, 218, 122, 0.5);
 }
 
 .register-pet-header {
-  background-color: #fce7c8; /* Beige header */
+  background-color: #fce7c8;
   max-width: 1455px;
-  color: #3b3b3b; /* Dark readable text */
+  color: #3b3b3b;
   padding: 10px 20px;
   margin: 10px auto;
   text-align: center;
@@ -378,7 +327,7 @@ h1 {
   width: 100%;
   padding: 10px 15px;
   margin-bottom: 15px;
-  border: 2px solid #f0a04b; /* Orangey border */
+  border: 2px solid #f0a04b;
   border-radius: 10px;
   font-size: 16px;
   outline: none;
@@ -389,14 +338,14 @@ h1 {
 }
 
 .register-pet select:focus {
-  border-color: #fada7a; /* Soft yellow focus */
+  border-color: #fada7a;
   box-shadow: 0 0 6px rgba(250, 218, 122, 0.5);
 }
 
 .register-pet button {
   width: 100%;
   padding: 12px;
-  background-color: #f0a04b; /* Orangey button */
+  background-color: #f0a04b;
   color: #3b3b3b;
   font-size: 16px;
   font-weight: 600;
@@ -408,7 +357,7 @@ h1 {
 }
 
 .register-pet button:hover {
-  background-color: #fada7a; /* Soft yellow hover */
+  background-color: #fada7a;
   box-shadow: 0 4px 10px rgba(250, 218, 122, 0.4);
   transform: scale(1.02);
 }
@@ -417,16 +366,16 @@ h1 {
   transform: scale(0.98);
 }
 .all-pets-header {
-  background-color: #fce7c8; /* Beige */
+  background-color: #fce7c8;
   max-width: 1455px;
-  color: #3b3b3b; /* Dark text */
+  color: #3b3b3b;
   padding: 10px 20px;
   margin: 10px auto;
   text-align: center;
 }
 
 .all-pets-container {
-  background-color: #b1c29e; /* Sage */
+  background-color: #b1c29e;
   padding: 30px;
   max-width: 1437px;
   height: 407px;
@@ -444,7 +393,7 @@ h1 {
   width: 60%;
   max-width: 500px;
   background: #f9f9f9;
-  border: 2px solid #f0a04b; /* Orangey */
+  border: 2px solid #f0a04b; 
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -462,7 +411,7 @@ h1 {
 }
 
 .all-pets-container li:hover {
-  background-color: #fada7a; /* Soft yellow hover */
+  background-color: #fada7a;
   transform: scale(1.02);
 }
 
@@ -475,14 +424,14 @@ h1 {
 }
 
 .all-pets-container a:hover {
-  color: #f0a04b; /* Orangey link hover */
+  color: #f0a04b; 
 }
 
 .show-header {
   text-align: center;
   font-family: "Tinos", serif;
   font-size: 30px;
-  color: #f0a04b; /* Orangey */
+  color: #f0a04b;
   margin-top: 40px;
   margin-bottom: 25px;
 }
@@ -553,15 +502,13 @@ h1 {
   max-width: 500px;
   height: auto;
   padding: 50px 20px;
-  margin: 50px auto; /* centers horizontally */
+  margin: 50px auto;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
-/* Appointment Pages */
 
 .edit-pet-container label {
   display: block;
@@ -673,12 +620,13 @@ h1 {
   padding: 10px;
 }
 .appointment-container {
-  background-color: #b1c29e; /* palette sage */
+  background-color: #b1c29e;
+  padding: 30px;
   max-width: 1437px;
+  height: 407px;
   margin: 0 auto;
-  padding: 40px 60px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   font-family: "Abel", sans-serif;
 }
@@ -709,7 +657,7 @@ h1 {
 .appointment-left input,
 .appointment-right textarea {
   padding: 10px;
-  border: 2px solid #f0a04b; /* palette orange */
+  border: 2px solid #f0a04b;
   border-radius: 8px;
   font-size: 1em;
   font-family: "Abel", sans-serif;
@@ -728,7 +676,7 @@ h1 {
 }
 
 .book-btn {
-  background-color: #f0a04b; /* palette orange */
+  background-color: #f0a04b;
   color: white;
   padding: 10px 25px;
   border: none;
@@ -743,9 +691,8 @@ h1 {
   background-color: #fada7a; /* palette yellow */
 }
 
-/* View Appointments Page */
 .appointments-table-container {
-  background-color: #b1c29e; /* palette sage */
+  background-color: #b1c29e;
   padding: 40px;
   max-width: 1200px;
   margin: 0 auto;
@@ -771,7 +718,7 @@ h1 {
 }
 
 .appointments-table th {
-  background-color: #f0a04b; /* palette orange */
+  background-color: #f0a04b;
   color: white;
   padding: 10px;
   font-weight: bold;
@@ -794,7 +741,7 @@ h1 {
 }
 
 .edit-link {
-  color: #f0a04b; /* palette orange */
+  color: #f0a04b;
   text-decoration: none;
   font-weight: bold;
 }
@@ -803,7 +750,18 @@ h1 {
   text-decoration: underline;
 }
 
-/* Delete Button */
+.delete-appointment-container {
+  background-color: #b1c29e;
+  padding: 30px;
+  max-width: 1437px;
+  margin: 0 auto;
+  margin-top: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Abel", sans-serif;
+}
+
 .delete-btn {
   background-color: #d9534f;
   color: white;
@@ -814,10 +772,6 @@ h1 {
   font-family: "Abel", sans-serif;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-}
-
-.delete-btn-container {
-  margin-top: 40px;
 }
 
 .delete-btn:hover {

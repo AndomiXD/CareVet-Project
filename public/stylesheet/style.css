@@ -48,3 +48,8 @@ h1 {
   align-items: center; /* Centers vertically */
   flex-direction: column;
 }
+
+.profile-page {
+  text-align: center;
+  background-color: ECF3F4;
+}

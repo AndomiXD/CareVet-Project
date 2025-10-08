@@ -1,7 +1,14 @@
+<link rel="stylesheet" href="/stylesheet/partials.css">
+<link rel="stylesheet" href="/stylesheet/style.css">
+
+<h1>Profile</h1>
+<div class="profile-pic">
 <a href=<%= `/user/${user._id}/update-profile` %>>Update Profile</a>
     <img src="<%= user.image %>" alt="Profile Picture" width="170px">
+    </div>
+    <div class="profile-page">
     <h2><%= user.firstName %> <%= user.lastName %></h2>
     <h2>Username: <%= user.username %></h2>
     <h2>Address: <%= user.address %></h2>
     <h2>Phone: <%= user.phone %></h2>
-    </h2>Role: <%= user.role %></h2>
+</div>

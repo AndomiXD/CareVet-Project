@@ -43,11 +43,14 @@
  - Users can request to reset their password in case they forget it [ ]
  - Prevent users from storing images on the local server [ ]
  - More animations and polishing of the backend & frontend [ ]
+ - Give more flexibility and privileges to the Vet [ ]
 
 
 
 ***
 
 ### ***Credits***
-##### Staying groovy to help my sanity: [Spotify](https://open.spotify.com/)
+##### Keeping stuff organised: [Trello](https://trello.com/b/N1luSKGp/carevet-project)
+##### Unanswered questions revealed: [StackOverflow](https://stackoverflow.com/questions)
+##### Plotting the ERD: [Lucid](https://lucid.app/lucidchart/49adf613-ebd2-433d-8602-ee29a31b59a4/edit?page=0_0&invitationId=inv_5e7d8327-e5bf-43e5-9020-2903b4be4706#)
 

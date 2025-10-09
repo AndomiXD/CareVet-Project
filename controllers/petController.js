@@ -13,7 +13,6 @@ exports.post_add_pet = async (req, res) => {
       petName: req.body.petName,
       species: req.body.species,
       breed: req.body.breed,
-      // petPhoto: req.body.photo,
       owner: ownerId,
     })
     res.redirect("/pets/all")
@@ -60,6 +59,7 @@ exports.get_add_pet = (req, res) => {
 
 exports.deletePetById = async (req, res) => {
   try {
+    0
     await Pet.findByIdAndDelete(req.params.id)
 
     res.redirect("/pets/all")

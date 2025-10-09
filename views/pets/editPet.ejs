@@ -1,5 +1,5 @@
 <%-include('../partials/_navbar.ejs') %>
-<link rel="stylesheet" href="/stylesheet/style.css">
+<link rel="stylesheet" href="/stylesheet/style.css" />
 
 <h1 class="edit-pet-header">Edit you pet's info</h1>
 <div class="edit-pet-container">
@@ -9,7 +9,14 @@
     <input type="text" name="petName" value="<%=pet.petName %>" required />
     <br />
     <label>Species:</label>
-    <input type="text" name="species" value="<%=pet.species %>" required />
+    <select name="species" id="species" required>
+      <option value="cat">Cat</option>
+      <option value="dog">Dog</option>
+      <option value="bird">Bird</option>
+      <option value="horse">Horse</option>
+      <option value="hamster">Hamster</option>
+      <option value="other">Other</option>
+    </select>
     <br />
     <label>Breed: </label>
     <input type="text" name="breed" value="<%=pet.breed %>" required />

@@ -6,8 +6,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background: linear-gradient(90deg, #FCE7C8, #FADA7A); /* soft gradient from beige to yellow */
-  border-bottom: 3px solid #F0A04B; /* warm accent line */
+  background: linear-gradient(90deg, #FCE7C8, #FADA7A);
+  border-bottom: 3px solid #F0A04B;
   font-family: "Jura", sans-serif;
 }
 
@@ -25,7 +25,7 @@
   margin-left: 10px;
   font-size: 22px;
   font-weight: bold;
-  color: #3B3B3B; /* readable text */
+  color: #3B3B3B;
 }
 
 .navbar a {
@@ -37,7 +37,7 @@
 }
 
 .navbar a:hover {
-  background-color: #F0A04B; /* orangey hover */
+  background-color: #F0A04B;
   color: white;
   border-radius: 8px;
 }
@@ -59,7 +59,7 @@ footer {
   background-color: #facf74;
   color: white;
   text-align: center;
-  padding: 6px 0; /* slimmer padding */
-  font-size: 14px; /* slightly smaller text */
+  padding: 6px 0; 
+  font-size: 14px;
   font-family: "Inter", sans-serif;
 }
